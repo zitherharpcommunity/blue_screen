@@ -1,0 +1,71 @@
+name: blue_screen
+description: Blue Screen of Death alternative to the default ErrorWidget used for Flutter apps.
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: '>=3.0.5 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  assets:
+    - assets/fonts/
+    - assets/images/
+  fonts:
+    - family: Chs
+      fonts:
+        - asset: assets/fonts/chs_boot.ttf
+    - family: Cht
+      fonts:
+        - asset: assets/fonts/cht_boot.ttf
+    - family: Jpn
+      fonts:
+        - asset: assets/fonts/jpn_boot.ttf
+    - family: Kor
+      fonts:
+        - asset: assets/fonts/kor_boot.ttf
+    - family: Malgun
+      fonts:
+        - asset: assets/fonts/malgun_boot.ttf
+    - family: Malgunn
+      fonts:
+        - asset: assets/fonts/malgunn_boot.ttf
+    - family: Meiryo
+      fonts:
+        - asset: assets/fonts/meiryo_boot.ttf
+    - family: Meiryon
+      fonts:
+        - asset: assets/fonts/meiryon_boot.ttf
+    - family: Msjh
+      fonts:
+        - asset: assets/fonts/msjh_boot.ttf
+    - family: Msjhn
+      fonts:
+        - asset: assets/fonts/msjhn_boot.ttf
+    - family: Msyh
+      fonts:
+        - asset: assets/fonts/msyh_boot.ttf
+    - family: Msyhn
+      fonts:
+        - asset: assets/fonts/msyhn_boot.ttf
+    - family: Segmono
+      fonts:
+        - asset: assets/fonts/segmono_boot.ttf
+    - family: Segoe
+      fonts:
+        - asset: assets/fonts/segoe_slboot.ttf
+    - family: Segoen
+      fonts:
+        - asset: assets/fonts/segoen_slboot.ttf
+    - family: Wgl4
+      fonts:
+        - asset: assets/fonts/wgl4_boot.ttf
