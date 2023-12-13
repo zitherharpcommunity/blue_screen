@@ -2,7 +2,7 @@ part of '/views/blue_screen_widget.dart';
 
 Widget _buildWithWindows11(
   BuildContext context,
-  FlutterErrorDetails details, {
+  Object exception, {
   required bool rebuild,
   required bool repeatable,
   required Color? textColor,
@@ -94,54 +94,35 @@ Widget _buildWithWindows11(
                 SizedBox(
                   width: context.shortestSide / 36,
                 ),
-                InkWell(
-                  onTap: () {
-                    showDialog(
-                      context: context,
-                      builder: (_) {
-                        return AlertDialog(
-                          title: Text(
-                            '${details.stack.runtimeType}',
-                          ),
-                          content: SingleChildScrollView(
-                            child: Text(
-                              '${details.stack}',
-                            ),
-                          ),
-                        );
-                      },
-                    );
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'For more information about this issue and possible fixes, visit\n$url',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: context.shortestSide / 40,
-                        ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'For more information about this issue and possible fixes, visit\n$url',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: context.shortestSide / 40,
                       ),
-                      SizedBox(
-                        height: context.shortestSide / 48,
+                    ),
+                    SizedBox(
+                      height: context.shortestSide / 48,
+                    ),
+                    Text(
+                      'If you call a support person, give them this info:',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: context.shortestSide / 48,
                       ),
-                      Text(
-                        'If you call a support person, give them this info:',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: context.shortestSide / 48,
-                        ),
+                    ),
+                    Text(
+                      stopCode?.name ?? '$exception',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: context.shortestSide / 48,
                       ),
-                      Text(
-                        'Stop code: ${stopCode?.name ?? details.summary}',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: context.shortestSide / 48,
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ],
             ),

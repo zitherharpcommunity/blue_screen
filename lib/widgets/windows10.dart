@@ -13,7 +13,7 @@ extension _SizeUtils on BuildContext {
 
 Widget _buildWithWindows10(
   BuildContext context,
-  FlutterErrorDetails details, {
+  Object exception, {
   required bool rebuild,
   required bool repeatable,
   required Color? textColor,
@@ -38,6 +38,9 @@ Widget _buildWithWindows10(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          SizedBox(
+            height: context.ratioSize10,
+          ),
           Text(
             emoticon,
             style: TextStyle(
@@ -51,6 +54,8 @@ Widget _buildWithWindows10(
           Text(
             'Your PC ran into a problem and needs to restart.\n'
             'We\'re just collecting some error info, and then we\'ll restart for you.',
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
               color: textColor,
               fontSize: context.ratioSize36,
@@ -76,6 +81,7 @@ Widget _buildWithWindows10(
               final progress = snapshot.requireData.round();
               return Text(
                 '$progress% complete',
+                overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: textColor,
                   fontSize: context.ratioSize36,
@@ -111,6 +117,7 @@ Widget _buildWithWindows10(
                   children: [
                     Text(
                       'For more information about this issue and possible fixes, visit $url',
+                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         color: textColor,
                         fontSize: context.ratioSize40,
@@ -127,7 +134,8 @@ Widget _buildWithWindows10(
                       ),
                     ),
                     Text(
-                      stopCode?.name ?? '${details.exception}',
+                      stopCode?.name ?? '$exception',
+                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         color: textColor,
                         fontSize: context.ratioSize48,

@@ -14,4 +14,6 @@ extension SizeUtils on BuildContext {
   double get longestSide => MediaQuery.of(this).size.longestSide;
 
   double getShortestSideBy(double value) => shortestSide / value;
+
+  ColorScheme get colorScheme => Theme.of(this).colorScheme;
 }

@@ -28,7 +28,7 @@ sealed class FontFamily {
   static const String msyhn = 'Msyhn';
 
   static const String segmono = 'Segmono';
-  
+
   static const String segoe = 'Segoe';
 
   static const String segoen = 'Segoen';

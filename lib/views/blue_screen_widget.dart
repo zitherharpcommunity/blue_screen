@@ -1,24 +1,27 @@
+import 'dart:async';
+import 'dart:developer';
+
 import 'package:blue_screen/data/stop_code.dart';
 import 'package:blue_screen/utils/font.dart';
 import 'package:blue_screen/utils/size.dart';
-import 'package:blue_screen/views/blue_screen_type.dart';
 import 'package:flutter/material.dart';
 
 import 'blue_screen_builder.dart';
 
+part '../widgets/safe_mode.dart';
 part '../widgets/windows10.dart';
 part '../widgets/windows11.dart';
 
 final class BlueScreenWidget extends StatelessWidget {
-  /// The type of the [BlueScreenWidget].
-  final BlueScreenType type;
-
   /// Class for information provided to [ErrorWidget] callbacks.
-  final FlutterErrorDetails details;
+  final Object exception;
+
+  /// The type of the [BlueScreenWidget].
+  final BlueScreenType? type;
 
   /// If true, the [BlueScreenWidget] will be rebuilt
   /// when the progress is completed.
-  /// 
+  ///
   /// If it's used for [ErrorWidget.builder], it will be ignored.
   final bool rebuild;
 
@@ -53,9 +56,27 @@ final class BlueScreenWidget extends StatelessWidget {
   /// The function invokes when the progress is completed.
   final void Function()? onCompleted;
 
+  /// Creates a default [BlueScreenWidget] that displays the given [exception].
+  const BlueScreenWidget(
+    this.exception, {
+    super.key,
+    this.textColor,
+    this.backgroundColor,
+    this.fontFamily,
+  })  : type = null,
+        rebuild = false,
+        repeatable = false,
+        url = '',
+        emoticon = '',
+        image = null,
+        stopCode = null,
+        period = Duration.zero,
+        duration = Duration.zero,
+        onCompleted = null;
+
   /// Creates a [BlueScreenWidget] with type [BlueScreenType.windows10].
   const BlueScreenWidget.withWindows10(
-    this.details, {
+    this.exception, {
     super.key,
     this.rebuild = false,
     this.repeatable = false,
@@ -73,7 +94,7 @@ final class BlueScreenWidget extends StatelessWidget {
 
   /// Creates a [BlueScreenWidget] with type [BlueScreenType.windows11].
   const BlueScreenWidget.withWindows11(
-    this.details, {
+    this.exception, {
     super.key,
     this.rebuild = false,
     this.repeatable = false,
@@ -98,7 +119,7 @@ final class BlueScreenWidget extends StatelessWidget {
             case BlueScreenType.windows10:
               return _buildWithWindows10(
                 context,
-                details,
+                exception,
                 rebuild: rebuild,
                 repeatable: repeatable,
                 textColor: textColor,
@@ -115,7 +136,7 @@ final class BlueScreenWidget extends StatelessWidget {
             case BlueScreenType.windows11:
               return _buildWithWindows11(
                 context,
-                details,
+                exception,
                 rebuild: rebuild,
                 repeatable: repeatable,
                 textColor: textColor,
@@ -130,12 +151,21 @@ final class BlueScreenWidget extends StatelessWidget {
                 onCompleted: onCompleted,
               );
             default:
-              return ErrorWidget(
-                details.exception,
+              return _buildSafeMode(
+                context: context,
+                exception: exception,
+                textColor: textColor,
+                backgroundColor: backgroundColor,
+                fontFamily: fontFamily,
               );
           }
         },
       ),
     );
   }
+}
+
+enum BlueScreenType {
+  windows10,
+  windows11,
 }

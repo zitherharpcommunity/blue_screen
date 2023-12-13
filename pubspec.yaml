@@ -1,7 +1,7 @@
 name: blue_screen
 description: Blue Screen of Death alternative to the default ErrorWidget used for Flutter apps.
-version: 0.0.1
-homepage:
+version: 1.0.0
+homepage: https://github.com/zitherharpcommunity/blue_screen
 
 environment:
   sdk: '>=3.0.5 <4.0.0'

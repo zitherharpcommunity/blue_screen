@@ -1,12 +1,14 @@
-import 'package:blue_screen/views/blue_screen_builder.dart';
-import 'package:blue_screen/views/blue_screen_widget.dart';
+import 'package:blue_screen/blue_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 /// Flutter code sample for [BlueScreenWidget].
 void main() {
-  // Start the app.
-  runApp(const BlueScreenExampleApp());
+  // Put the app in a safe mode.
+  runSafeMode(() {
+    // Start the app.
+    runApp(const BlueScreenExampleApp());
+  });
 }
 
 class BlueScreenExampleApp extends StatefulWidget {
@@ -39,7 +41,8 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
       },
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Builder(
+        home: SafeModeBuilder(
+          enable: true,
           builder: (context) {
             if (throwError) {
               // Since the error widget is only used during a build, in this contrived example,
@@ -63,6 +66,8 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
               );
             }
           },
+          // Show a default BlueScreenWidget when app throws an error.
+          provider: (e) => BlueScreenWidget(e),
         ),
       ),
     );
