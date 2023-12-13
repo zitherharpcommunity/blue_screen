@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 /// Flutter code sample for [BlueScreenWidget].
-
 void main() {
   // Start the app.
   runApp(const BlueScreenExampleApp());
@@ -27,7 +26,7 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
       builder: (details) {
         // If we're in debug mode,
         // use the blue screen on Windows 10 to shows the error.
-        if (!kDebugMode) {
+        if (kDebugMode) {
           return BlueScreenWidget.withWindows10(
             details,
             rebuild: true,

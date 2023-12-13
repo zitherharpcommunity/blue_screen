@@ -3,17 +3,18 @@ part of '/views/blue_screen_widget.dart';
 Widget _buildWithWindows11(
   BuildContext context,
   FlutterErrorDetails details, {
-  String url = 'https://www.windows.com/stopcode',
-  String emoticon = ':(',
-  String? fontFamily,
-  Color? backgroundColor,
-  StopCode? stopCode,
-  bool rebuild = false,
-  bool repeatable = false,
-  void Function()? onCompleted,
-  ImageProvider? image,
-  Duration period = const Duration(seconds: 1),
-  Duration duration = const Duration(seconds: 10),
+  required bool rebuild,
+  required bool repeatable,
+  required Color? textColor,
+  required Color? backgroundColor,
+  required String emoticon,
+  required String url,
+  required String? fontFamily,
+  required StopCode? stopCode,
+  required ImageProvider? image,
+  required Duration period,
+  required Duration duration,
+  required void Function()? onCompleted,
 }) {
   return Theme(
     data: ThemeData(

@@ -380,6 +380,6 @@ enum StopCode {
   MANUALLY_INITIATED_CRASH1(0xDEADDEAD);
 
   final int code;
-
+  
   const StopCode(this.code);
 }

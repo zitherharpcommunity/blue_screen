@@ -2,19 +2,29 @@ import 'package:flutter/material.dart';
 
 import 'blue_screen_widget.dart';
 
+/// A stateless utility widget whose [BlueScreenBuilderState.rebuild] method
+/// uses its [builder] callback to create the widget's child.
 final class BlueScreenBuilder extends StatefulWidget {
+  /// Creates a widget that delegates its build to a [BlueScreenWidget].
+  ///
+  /// The [child] and [builder] argument must not be null.
   const BlueScreenBuilder({
     super.key,
     required this.child,
     required this.builder,
   });
 
+  /// The widget below this widget in the tree.
   final Widget child;
+
+  /// The configurable factory for [BlueScreenWidget].
   final BlueScreenWidget Function(FlutterErrorDetails) builder;
 
   @override
   State<BlueScreenBuilder> createState() => BlueScreenBuilderState();
 
+  /// Returns the [BlueScreenBuilderState] object
+  /// of the nearest ancestor [BlueScreenBuilder] widget.
   static BlueScreenBuilderState? of(BuildContext context) {
     return context.findAncestorStateOfType<BlueScreenBuilderState>();
   }
@@ -37,6 +47,7 @@ class BlueScreenBuilderState extends State<BlueScreenBuilder> {
     );
   }
 
+  /// Rebuild the widget that builds its child.
   void rebuild() {
     setState(() {
       key = UniqueKey();
