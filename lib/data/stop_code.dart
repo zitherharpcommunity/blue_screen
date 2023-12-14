@@ -389,5 +389,5 @@ enum StopCode {
 
   static const String url = 'https://www.windows.com/stopcode';
 
-  static const ImageProvider image = AssetImage('assets/image.png');
+  static const ImageProvider image = AssetImage('assets/image.png', package: 'blue_screen');
 }

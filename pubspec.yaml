@@ -17,9 +17,10 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter:
+  uses-material-design: true
   assets:
+    - assets/
     - assets/fonts/
-    - assets/image.png
   fonts:
     - family: Chs
       fonts:
@@ -69,4 +70,3 @@ flutter:
     - family: Wgl4
       fonts:
         - asset: assets/fonts/wgl4_boot.ttf
-  uses-material-design: true

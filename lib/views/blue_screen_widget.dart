@@ -40,13 +40,21 @@ final class BlueScreenWidget extends StatelessWidget {
   /// The font family used to paint the text.
   final String? fontFamily;
 
+  /// The stop code used to call a support person.
   final StopCode? stopCode;
 
+  /// The image used on header of [BlueScreenWidget].
+  ///
+  /// Typically a logo or a QR code.
   final ImageProvider? image;
 
+  /// The update period of progress.
+  ///
   /// The [period] must be a non-negative [Duration].
   final Duration period;
 
+  /// The complete duration of the progress.
+  ///
   /// The [duration] must be a non-negative [Duration].
   final Duration duration;
 

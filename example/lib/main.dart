@@ -25,27 +25,24 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
   Widget build(BuildContext context) {
     // Set the BlueScreen's builder before the app is started.
     return BlueScreenBuilder(
-      builder: (details) {
+      builder: (exception) {
         // If we're in debug mode,
         // use the blue screen on Windows 10 to shows the error.
         if (kDebugMode) {
           return BlueScreenWidget.withWindows10(
-            details,
+            exception,
             rebuild: true,
             repeatable: true,
+            stopCode: StopCode.AGP_INVALID_ACCESS,
             fontFamily: FontFamily.wgl4,
           );
         } else {
           // In release builds, show a blue screen on Windows 11 instead:
-          return BlueScreenWidget.withWindows11(details);
+          return BlueScreenWidget.withWindows11(exception);
         }
       },
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          
-          fontFamily: FontFamily.segoe,
-        ),
         home: SafeModeBuilder(
           enable: false,
           builder: (context) {

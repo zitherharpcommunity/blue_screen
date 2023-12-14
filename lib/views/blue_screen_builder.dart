@@ -18,7 +18,7 @@ final class BlueScreenBuilder extends StatefulWidget {
   final Widget child;
 
   /// The configurable factory for [BlueScreenWidget].
-  final BlueScreenWidget Function(FlutterErrorDetails) builder;
+  final BlueScreenWidget Function(Object exception) builder;
 
   @override
   State<BlueScreenBuilder> createState() => BlueScreenBuilderState();

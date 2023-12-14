@@ -1,6 +1,6 @@
 part of '/views/blue_screen_widget.dart';
 
-/// Runs [body] in a safe mode.
+/// Runs [body] in its own a safe mode.
 void runSafeMode(
   void Function() body, {
   void Function(Object error, StackTrace stackTrace)? onError,
@@ -27,10 +27,11 @@ Widget _buildSafeMode({
   required String? fontFamily,
 }) {
   return Container(
-    width: context.width,
-    height: context.height,
     color: backgroundColor ?? Colors.blue,
-    padding: EdgeInsets.all(context.ratioSize10),
+    padding: EdgeInsets.symmetric(
+      vertical: context.ratioSize5,
+      horizontal: context.ratioSize10,
+    ),
     child: Text(
       '$exception',
       style: TextStyle(

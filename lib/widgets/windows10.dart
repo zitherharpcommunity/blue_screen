@@ -1,15 +1,5 @@
 part of '/views/blue_screen_widget.dart';
 
-extension _SizeUtils on BuildContext {
-  double get ratioSize5 => shortestSide / 5;
-  double get ratioSize8 => shortestSide / 8;
-  double get ratioSize10 => shortestSide / 10;
-  double get ratioSize28 => shortestSide / 28;
-  double get ratioSize36 => shortestSide / 36;
-  double get ratioSize40 => shortestSide / 40;
-  double get ratioSize48 => shortestSide / 48;
-}
-
 Widget _buildWithWindows10(
   BuildContext context,
   Object exception, {
@@ -126,7 +116,9 @@ Widget _buildWithWindows10(
                       ),
                     ),
                     Text(
-                      stopCode?.name ?? '$exception',
+                      stopCode == null
+                          ? '$exception'
+                          : 'Stop code: ${stopCode.name}',
                       style: TextStyle(
                         color: textColor,
                         fontSize: context.ratioSize48,

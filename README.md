@@ -1,35 +1,38 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# blue_screen
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+> From: [Wikipedia](https://en.wikipedia.org/wiki/Blue_screen_of_death): 
+The **Blue Screen of Death (BSoD)**, **Blue screen error**, **Blue Screen**, **fatal error**, or **bugcheck**, 
+and officially known as a **Stop error**, is a critical error screen displayed 
+by the *Microsoft Windows* and *ReactOS* operating systems in the event of a fatal system error. 
+The Blue Screen of Death indicates a system crash, in which the operating system 
+has reached a critical condition where it can no longer operate safely. 
+Possible issues include hardware failure, an issue with or without a device driver, 
+or unexpected termination of a crucial process or thread.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- Supports run app in a safe mode with `runSafeMode` function.
+
+- Use `BlueScreenWidget` instead of the default `ErrorWidget` to show error message.
+
+- Put your widgets in a `SafeModeBuilder` to avoid throw an exception when run app in release mode.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+- Just simply run this line in your project terminal.
+
+```sh
+dart run blue_screen
+```
+
+- See more details at [Installing]() page.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+> **Note:** See full details of this example at [Example]() page.
 
 ```dart
-const like = 'sample';
+import 'package:blue_screen/blue_screen.dart';
 ```
 
 ## Additional information
