@@ -33,6 +33,7 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
             details,
             rebuild: true,
             repeatable: true,
+            fontFamily: FontFamily.wgl4,
           );
         } else {
           // In release builds, show a blue screen on Windows 11 instead:
@@ -41,8 +42,12 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
       },
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          
+          fontFamily: FontFamily.segoe,
+        ),
         home: SafeModeBuilder(
-          enable: true,
+          enable: false,
           builder: (context) {
             if (throwError) {
               // Since the error widget is only used during a build, in this contrived example,
@@ -51,7 +56,7 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
             } else {
               return Scaffold(
                 appBar: AppBar(
-                  title: const Text('BlueScreenWidget Sample'),
+                  title: const Text('BlueScreen Sample'),
                 ),
                 body: Center(
                   child: TextButton(
@@ -67,7 +72,7 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
             }
           },
           // Show a default BlueScreenWidget when app throws an error.
-          provider: (e) => BlueScreenWidget(e),
+          provider: (exception) => BlueScreenWidget(exception),
         ),
       ),
     );

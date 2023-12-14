@@ -19,7 +19,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/fonts/
-    - assets/images/
+    - assets/image.png
   fonts:
     - family: Chs
       fonts:
@@ -69,3 +69,4 @@ flutter:
     - family: Wgl4
       fonts:
         - asset: assets/fonts/wgl4_boot.ttf
+  uses-material-design: true

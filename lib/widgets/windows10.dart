@@ -7,7 +7,6 @@ extension _SizeUtils on BuildContext {
   double get ratioSize28 => shortestSide / 28;
   double get ratioSize36 => shortestSide / 36;
   double get ratioSize40 => shortestSide / 40;
-  double get ratioSize42 => shortestSide / 42;
   double get ratioSize48 => shortestSide / 48;
 }
 
@@ -49,13 +48,11 @@ Widget _buildWithWindows10(
             ),
           ),
           SizedBox(
-            height: context.ratioSize42,
+            height: context.ratioSize36,
           ),
           Text(
             'Your PC ran into a problem and needs to restart.\n'
             'We\'re just collecting some error info, and then we\'ll restart for you.',
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
             style: TextStyle(
               color: textColor,
               fontSize: context.ratioSize36,
@@ -81,7 +78,6 @@ Widget _buildWithWindows10(
               final progress = snapshot.requireData.round();
               return Text(
                 '$progress% complete',
-                overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: textColor,
                   fontSize: context.ratioSize36,
@@ -101,10 +97,7 @@ Widget _buildWithWindows10(
                     bottom: context.ratioSize36,
                   ),
                   child: Image(
-                    image: image ??
-                        const NetworkImage(
-                          'https://upload.wikimedia.org/wikipedia/commons/2/2f/Rickrolling_QR_code.png',
-                        ),
+                    image: image ?? StopCode.image,
                     height: context.ratioSize8,
                   ),
                 ),
@@ -117,7 +110,6 @@ Widget _buildWithWindows10(
                   children: [
                     Text(
                       'For more information about this issue and possible fixes, visit $url',
-                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         color: textColor,
                         fontSize: context.ratioSize40,
@@ -135,7 +127,6 @@ Widget _buildWithWindows10(
                     ),
                     Text(
                       stopCode?.name ?? '$exception',
-                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         color: textColor,
                         fontSize: context.ratioSize48,

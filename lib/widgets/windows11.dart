@@ -84,10 +84,7 @@ Widget _buildWithWindows11(
                     bottom: context.shortestSide / 36,
                   ),
                   child: Image(
-                    image: image ??
-                        const NetworkImage(
-                          'https://upload.wikimedia.org/wikipedia/commons/2/2f/Rickrolling_QR_code.png',
-                        ),
+                    image: image ?? StopCode.image,
                     height: context.height / 8,
                   ),
                 ),

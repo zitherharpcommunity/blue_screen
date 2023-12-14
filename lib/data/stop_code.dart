@@ -1,5 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:flutter/material.dart';
+
 enum StopCode {
   APC_INDEX_MISMATCH(0x00000001),
   DEVICE_QUEUE_NOT_BUSY(0x00000002),
@@ -382,4 +384,10 @@ enum StopCode {
   final int code;
 
   const StopCode(this.code);
+
+  static const String emoticon = ':(';
+
+  static const String url = 'https://www.windows.com/stopcode';
+
+  static const ImageProvider image = AssetImage('assets/image.png');
 }

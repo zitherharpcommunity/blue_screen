@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 
 /// A stateless utility widget whose built in a safe mode.
 class SafeModeBuilder extends StatelessWidget {
-  /// Creates a widget that delegates its build to a safe mode.
+  /// Creates a widget that delegates its build in a safe mode.
   ///
   /// The [builder] and [provider] argument must not be null.
   ///

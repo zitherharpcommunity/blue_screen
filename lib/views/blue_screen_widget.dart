@@ -1,12 +1,9 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:blue_screen/data/stop_code.dart';
-import 'package:blue_screen/utils/font.dart';
-import 'package:blue_screen/utils/size.dart';
+import 'package:blue_screen/blue_screen.dart';
+import 'package:blue_screen/utils/build_context.dart';
 import 'package:flutter/material.dart';
-
-import 'blue_screen_builder.dart';
 
 part '../widgets/safe_mode.dart';
 part '../widgets/windows10.dart';
@@ -80,13 +77,13 @@ final class BlueScreenWidget extends StatelessWidget {
     super.key,
     this.rebuild = false,
     this.repeatable = false,
-    this.emoticon = ':(',
-    this.url = 'https://www.windows.com/stopcode',
+    this.url = StopCode.url,
+    this.emoticon = StopCode.emoticon,
     this.fontFamily,
     this.textColor,
     this.backgroundColor,
-    this.image,
     this.stopCode,
+    this.image = StopCode.image,
     this.period = const Duration(seconds: 1),
     this.duration = const Duration(seconds: 5),
     this.onCompleted,
@@ -98,13 +95,13 @@ final class BlueScreenWidget extends StatelessWidget {
     super.key,
     this.rebuild = false,
     this.repeatable = false,
-    this.emoticon = ':(',
-    this.url = 'https://www.windows.com/stopcode',
+    this.url = StopCode.url,
+    this.emoticon = StopCode.emoticon,
     this.fontFamily,
     this.textColor,
     this.backgroundColor,
-    this.image,
     this.stopCode,
+    this.image = StopCode.image,
     this.period = const Duration(seconds: 1),
     this.duration = const Duration(seconds: 5),
     this.onCompleted,

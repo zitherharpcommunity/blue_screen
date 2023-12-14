@@ -11,7 +11,7 @@ void runSafeMode(
         (error, stackTrace) {
           log(
             '$error',
-            name: 'blue_screen',
+            name: 'SAFE_MODE',
             error: error,
             stackTrace: stackTrace,
           );
