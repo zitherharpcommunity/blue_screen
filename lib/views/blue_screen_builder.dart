@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-
-import 'blue_screen_widget.dart';
+import '/exports/utils.dart';
+import '/exports/views.dart';
 
 /// A stateless utility widget whose [BlueScreenBuilderState.rebuild] method
 /// uses its [builder] callback to create the widget's child.

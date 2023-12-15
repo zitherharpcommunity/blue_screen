@@ -19,12 +19,16 @@ sealed class FontFamily {
 
   static const String meiryon = 'Meiryon';
 
+  /// Microsoft JhengHei
   static const String msjh = 'Msjh';
 
+  /// Microsoft JhengHei
   static const String msjhn = 'Msjhn';
 
+  /// Microsoft YaHei
   static const String msyh = 'Msyh';
 
+  /// Microsoft YaHei
   static const String msyhn = 'Msyhn';
 
   static const String segmono = 'Segmono';
@@ -33,5 +37,6 @@ sealed class FontFamily {
 
   static const String segoen = 'Segoen';
 
+  /// Windows Glyph List 4
   static const String wgl4 = 'Wgl4';
 }

@@ -1,7 +1,8 @@
 name: blue_screen
 description: Blue Screen of Death alternative to the default ErrorWidget used for Flutter apps.
 version: 1.0.0
-homepage: https://github.com/zitherharpcommunity/blue_screen
+homepage: https://pub.dev/packages/blue_screen
+repository: https://github.com/zitherharpcommunity/blue_screen
 
 environment:
   sdk: '>=3.0.5 <4.0.0'
@@ -20,53 +21,57 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
-    - assets/fonts/
   fonts:
     - family: Chs
       fonts:
-        - asset: assets/fonts/chs_boot.ttf
+        - asset: lib/fonts/chs_boot.ttf
     - family: Cht
       fonts:
-        - asset: assets/fonts/cht_boot.ttf
+        - asset: lib/fonts/cht_boot.ttf
     - family: Jpn
       fonts:
-        - asset: assets/fonts/jpn_boot.ttf
+        - asset: lib/fonts/jpn_boot.ttf
     - family: Kor
       fonts:
-        - asset: assets/fonts/kor_boot.ttf
+        - asset: lib/fonts/kor_boot.ttf
     - family: Malgun
       fonts:
-        - asset: assets/fonts/malgun_boot.ttf
+        - asset: lib/fonts/malgun_boot.ttf
     - family: Malgunn
       fonts:
-        - asset: assets/fonts/malgunn_boot.ttf
+        - asset: lib/fonts/malgunn_boot.ttf
     - family: Meiryo
       fonts:
-        - asset: assets/fonts/meiryo_boot.ttf
+        - asset: lib/fonts/meiryo_boot.ttf
     - family: Meiryon
       fonts:
-        - asset: assets/fonts/meiryon_boot.ttf
+        - asset: lib/fonts/meiryon_boot.ttf
     - family: Msjh
       fonts:
-        - asset: assets/fonts/msjh_boot.ttf
+        - asset: lib/fonts/msjh_boot.ttf
     - family: Msjhn
       fonts:
-        - asset: assets/fonts/msjhn_boot.ttf
+        - asset: lib/fonts/msjhn_boot.ttf
     - family: Msyh
       fonts:
-        - asset: assets/fonts/msyh_boot.ttf
+        - asset: lib/fonts/msyh_boot.ttf
     - family: Msyhn
       fonts:
-        - asset: assets/fonts/msyhn_boot.ttf
+        - asset: lib/fonts/msyhn_boot.ttf
     - family: Segmono
       fonts:
-        - asset: assets/fonts/segmono_boot.ttf
+        - asset: lib/fonts/segmono_boot.ttf
     - family: Segoe
       fonts:
-        - asset: assets/fonts/segoe_slboot.ttf
+        - asset: lib/fonts/segoe_slboot.ttf
     - family: Segoen
       fonts:
-        - asset: assets/fonts/segoen_slboot.ttf
+        - asset: lib/fonts/segoen_slboot.ttf
     - family: Wgl4
       fonts:
-        - asset: assets/fonts/wgl4_boot.ttf
+        - asset: lib/fonts/wgl4_boot.ttf
+
+screenshots:
+  - path: assets/screenshot.png
+    description: 'The screenshot of BSoD on Windows 10.'
+    

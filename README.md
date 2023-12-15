@@ -1,5 +1,7 @@
 # blue_screen
 
+![screenshot](/assets/screenshot.png)
+
 > From: [Wikipedia](https://en.wikipedia.org/wiki/Blue_screen_of_death): 
 The **Blue Screen of Death (BSoD)**, **Blue screen error**, **Blue Screen**, **fatal error**, or **bugcheck**, 
 and officially known as a **Stop error**, is a critical error screen displayed 
@@ -12,24 +14,48 @@ or unexpected termination of a crucial process or thread.
 ## Features
 
 - Supports run app in a safe mode with `runSafeMode` function.
-
 - Use `BlueScreenWidget` instead of the default `ErrorWidget` to show error message.
-
 - Put your widgets in a `SafeModeBuilder` to avoid throw an exception when run app in release mode.
 
 ## Getting started
 
-- Just simply run this line in your project terminal.
+### Add the package to the app
+
+- To add the `blue_screen` package as a dependency, run this command in your project terminal:
 
 ```sh
-dart run blue_screen
+flutter pub add awesome_package
 ```
 
-- See more details at [Installing]() page.
+> See more details at 
+[Installing](https://pub.dev/packages/blue_screen/install) page.
+
+### Declare the font assets (optional)
+
+- Now that you've imported the package, tell Flutter where to find the fonts from the `blue_screen`.
+- To declare package fonts, prefix the path to the font with `packages/blue_screen`. 
+This tells Flutter to look in the lib folder of the package for the font.
+> See more fonts at [here](../blue_screen/example/README.md).
+
+```yaml
+flutter:
+  fonts:
+    - family: <font_name>
+      fonts:
+        - asset: packages/blue_screen/fonts/<file_name>
+```
+
+- To use package fonts, declare which font you’d like to use and which package the font belongs to.
+```dart
+...
+  fontFamily: '<font_name>',
+...
+```
 
 ## Usage
 
-> **Note:** See full details of this example at [Example]() page.
+> See complete example at 
+[Example](https://pub.dev/packages/blue_screen/example) page.
 
 ```dart
 import 'package:blue_screen/blue_screen.dart';
@@ -37,6 +63,4 @@ import 'package:blue_screen/blue_screen.dart';
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+Please request features and bugs for us at the [issue](https://github.com/zitherharpcommunity/blue_screen/issues) page.

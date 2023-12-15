@@ -1,7 +1,9 @@
 // ignore_for_file: constant_identifier_names
 
-import 'package:flutter/material.dart';
+import '/exports/utils.dart';
 
+/// This section contains common bug check codes
+/// that are displayed on the blue bug check screen.
 enum StopCode {
   APC_INDEX_MISMATCH(0x00000001),
   DEVICE_QUEUE_NOT_BUSY(0x00000002),
@@ -387,7 +389,9 @@ enum StopCode {
 
   static const String emoticon = ':(';
 
+  /// The url used to visit for more information.
   static const String url = 'https://www.windows.com/stopcode';
 
-  static const ImageProvider image = AssetImage('assets/image.png', package: 'blue_screen');
+  static const ImageProvider image =
+      AssetImage('assets/image.png', package: 'blue_screen');
 }

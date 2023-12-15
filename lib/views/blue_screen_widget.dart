@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:blue_screen/blue_screen.dart';
-import 'package:blue_screen/utils/build_context.dart';
-import 'package:flutter/material.dart';
+import '/exports/data.dart';
+import '/exports/utils.dart';
+import '/exports/views.dart';
 
 part '../widgets/safe_mode.dart';
 part '../widgets/windows10.dart';
@@ -14,7 +14,7 @@ final class BlueScreenWidget extends StatelessWidget {
   final Object exception;
 
   /// The type of the [BlueScreenWidget].
-  final BlueScreenType? type;
+  final OperatingSystem? type;
 
   /// If true, the [BlueScreenWidget] will be rebuilt
   /// when the progress is completed.
@@ -45,7 +45,7 @@ final class BlueScreenWidget extends StatelessWidget {
 
   /// The image used on header of [BlueScreenWidget].
   ///
-  /// Typically a logo or a QR code.
+  /// Typically a logo or a QR code. If `null`, it is invisible.
   final ImageProvider? image;
 
   /// The update period of progress.
@@ -79,7 +79,7 @@ final class BlueScreenWidget extends StatelessWidget {
         duration = Duration.zero,
         onCompleted = null;
 
-  /// Creates a [BlueScreenWidget] with type [BlueScreenType.windows10].
+  /// Creates a [BlueScreenWidget] with type [OperatingSystem.windows10].
   const BlueScreenWidget.withWindows10(
     this.exception, {
     super.key,
@@ -95,9 +95,9 @@ final class BlueScreenWidget extends StatelessWidget {
     this.period = const Duration(seconds: 1),
     this.duration = const Duration(seconds: 5),
     this.onCompleted,
-  }) : type = BlueScreenType.windows10;
+  }) : type = OperatingSystem.windows10;
 
-  /// Creates a [BlueScreenWidget] with type [BlueScreenType.windows11].
+  /// Creates a [BlueScreenWidget] with type [OperatingSystem.windows11].
   const BlueScreenWidget.withWindows11(
     this.exception, {
     super.key,
@@ -113,7 +113,7 @@ final class BlueScreenWidget extends StatelessWidget {
     this.period = const Duration(seconds: 1),
     this.duration = const Duration(seconds: 5),
     this.onCompleted,
-  }) : type = BlueScreenType.windows11;
+  }) : type = OperatingSystem.windows11;
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +121,7 @@ final class BlueScreenWidget extends StatelessWidget {
       body: Builder(
         builder: (context) {
           switch (type) {
-            case BlueScreenType.windows10:
+            case OperatingSystem.windows10:
               return _buildWithWindows10(
                 context,
                 exception,
@@ -138,7 +138,7 @@ final class BlueScreenWidget extends StatelessWidget {
                 duration: duration,
                 onCompleted: onCompleted,
               );
-            case BlueScreenType.windows11:
+            case OperatingSystem.windows11:
               return _buildWithWindows11(
                 context,
                 exception,
@@ -168,9 +168,4 @@ final class BlueScreenWidget extends StatelessWidget {
       ),
     );
   }
-}
-
-enum BlueScreenType {
-  windows10,
-  windows11,
 }

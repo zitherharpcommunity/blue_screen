@@ -18,7 +18,7 @@ Widget _buildWithWindows11(
 }) {
   return Theme(
     data: ThemeData(
-      fontFamily: fontFamily ?? FontFamily.segoen,
+      fontFamily: fontFamily ?? OperatingSystem.windows11.fontFamily,
     ),
     child: Container(
       height: context.height,
@@ -79,15 +79,16 @@ Widget _buildWithWindows11(
             height: context.height / 8,
             child: Wrap(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                    bottom: context.shortestSide / 36,
+                if (image != null)
+                  Padding(
+                    padding: EdgeInsets.only(
+                      bottom: context.shortestSide36,
+                    ),
+                    child: Image(
+                      image: image,
+                      height: context.shortestSide8,
+                    ),
                   ),
-                  child: Image(
-                    image: image ?? StopCode.image,
-                    height: context.height / 8,
-                  ),
-                ),
                 SizedBox(
                   width: context.shortestSide / 36,
                 ),

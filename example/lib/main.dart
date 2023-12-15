@@ -33,8 +33,6 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
             exception,
             rebuild: true,
             repeatable: true,
-            stopCode: StopCode.AGP_INVALID_ACCESS,
-            fontFamily: FontFamily.wgl4,
           );
         } else {
           // In release builds, show a blue screen on Windows 11 instead:
@@ -42,6 +40,7 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
         }
       },
       child: MaterialApp(
+        title: 'blue_screen_example',
         debugShowCheckedModeBanner: false,
         home: SafeModeBuilder(
           enable: false,

@@ -16,40 +16,40 @@ Widget _buildWithWindows10(
   required Duration duration,
   required void Function()? onCompleted,
 }) {
-  textColor ??= Colors.white;
+  final textStyle = TextStyle(
+    color: textColor ?? OperatingSystem.windows10.textColor,
+  );
   return Theme(
     data: ThemeData(
-      fontFamily: fontFamily ?? FontFamily.segoe,
+      fontFamily: fontFamily ?? OperatingSystem.windows10.fontFamily,
     ),
     child: Container(
-      color: backgroundColor ?? Colors.blue,
-      padding: EdgeInsets.all(context.ratioSize10),
+      color: backgroundColor ?? OperatingSystem.windows10.backgroundColor,
+      padding: EdgeInsets.all(context.shortestSide10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SizedBox(
-            height: context.ratioSize10,
+            height: context.shortestSide10,
           ),
           Text(
             emoticon,
-            style: TextStyle(
-              color: textColor,
-              fontSize: context.ratioSize5,
+            style: textStyle.copyWith(
+              fontSize: context.shortestSide5,
             ),
           ),
           SizedBox(
-            height: context.ratioSize36,
+            height: context.shortestSide28,
           ),
           Text(
             'Your PC ran into a problem and needs to restart.\n'
             'We\'re just collecting some error info, and then we\'ll restart for you.',
-            style: TextStyle(
-              color: textColor,
-              fontSize: context.ratioSize36,
+            style: textStyle.copyWith(
+              fontSize: context.shortestSide36,
             ),
           ),
           SizedBox(
-            height: context.ratioSize28,
+            height: context.shortestSide28,
           ),
           StreamBuilder(
             initialData: 0,
@@ -68,31 +68,31 @@ Widget _buildWithWindows10(
               final progress = snapshot.requireData.round();
               return Text(
                 '$progress% complete',
-                style: TextStyle(
-                  color: textColor,
-                  fontSize: context.ratioSize36,
+                style: textStyle.copyWith(
+                  fontSize: context.shortestSide36,
                 ),
               );
             },
           ),
           SizedBox(
-            height: context.ratioSize28,
+            height: context.shortestSide28,
           ),
           SizedBox(
-            height: context.ratioSize8,
+            height: context.shortestSide8,
             child: Wrap(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                    bottom: context.ratioSize36,
+                if (image != null)
+                  Padding(
+                    padding: EdgeInsets.only(
+                      bottom: context.shortestSide36,
+                    ),
+                    child: Image(
+                      image: image,
+                      height: context.shortestSide8,
+                    ),
                   ),
-                  child: Image(
-                    image: image ?? StopCode.image,
-                    height: context.ratioSize8,
-                  ),
-                ),
                 SizedBox(
-                  width: context.ratioSize36,
+                  width: context.shortestSide36,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -100,28 +100,25 @@ Widget _buildWithWindows10(
                   children: [
                     Text(
                       'For more information about this issue and possible fixes, visit $url',
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: context.ratioSize40,
+                      style: textStyle.copyWith(
+                        fontSize: context.shortestSide40,
                       ),
                     ),
                     SizedBox(
-                      height: context.ratioSize36,
+                      height: context.shortestSide36,
                     ),
                     Text(
                       'If you call a support person, give them this info:',
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: context.ratioSize48,
+                      style: textStyle.copyWith(
+                        fontSize: context.shortestSide48,
                       ),
                     ),
                     Text(
                       stopCode == null
                           ? '$exception'
                           : 'Stop code: ${stopCode.name}',
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: context.ratioSize48,
+                      style: textStyle.copyWith(
+                        fontSize: context.shortestSide48,
                       ),
                     ),
                   ],

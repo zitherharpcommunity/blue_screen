@@ -1,5 +1,5 @@
-import 'package:blue_screen/blue_screen.dart';
-import 'package:flutter/widgets.dart';
+import '/exports/utils.dart';
+import '/exports/views.dart';
 
 /// A stateless utility widget whose built in a safe mode.
 class SafeModeBuilder extends StatelessWidget {
