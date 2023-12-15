@@ -1,6 +1,6 @@
 part of '/views/blue_screen_widget.dart';
 
-Widget _buildWithWindows10(
+Widget _buildWithWindows11(
   BuildContext context,
   Object exception, {
   required bool rebuild,
@@ -12,44 +12,45 @@ Widget _buildWithWindows10(
   required String? fontFamily,
   required StopCode? stopCode,
   required ImageProvider? image,
+  required OperatingSystem system,
+  required DisplayLanguage language,
   required Duration period,
   required Duration duration,
   required void Function()? onCompleted,
 }) {
-  final textStyle = TextStyle(
-    color: textColor ?? OperatingSystem.windows10.textColor,
-  );
   return Theme(
     data: ThemeData(
-      fontFamily: fontFamily ?? OperatingSystem.windows10.fontFamily,
+      fontFamily: fontFamily ?? system.fontFamily,
     ),
     child: Container(
-      color: backgroundColor ?? OperatingSystem.windows10.backgroundColor,
-      padding: EdgeInsets.all(context.shortestSide10),
+      height: context.height,
+      color: backgroundColor ?? system.backgroundColor,
+      padding: EdgeInsets.all(
+        context.longestSide / 10,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          SizedBox(
-            height: context.shortestSide10,
-          ),
           Text(
             emoticon,
-            style: textStyle.copyWith(
-              fontSize: context.shortestSide5,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: context.shortestSide / 5,
             ),
           ),
           SizedBox(
-            height: context.shortestSide28,
+            height: context.shortestSide / 42,
           ),
           Text(
-            'Your PC ran into a problem and needs to restart.\n'
+            'Your device ran into a problem and needs to restart.\n'
             'We\'re just collecting some error info, and then we\'ll restart for you.',
-            style: textStyle.copyWith(
-              fontSize: context.shortestSide36,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: context.shortestSide / 36,
             ),
           ),
           SizedBox(
-            height: context.shortestSide28,
+            height: context.shortestSide / 28,
           ),
           StreamBuilder(
             initialData: 0,
@@ -57,28 +58,27 @@ Widget _buildWithWindows10(
               period,
               (_) {
                 final tick = 100 / (duration.inSeconds / _);
-                if (tick > 100 && repeatable) {
-                  onCompleted?.call();
-                  if (rebuild) BlueScreenBuilder.of(context)?.rebuild();
-                }
-                return tick > 100 ? 100 : tick;
+                if (tick > 100) BlueScreenBuilder.of(context)?.rebuild();
+                return tick;
               },
             ),
             builder: (context, snapshot) {
               final progress = snapshot.requireData.round();
               return Text(
                 '$progress% complete',
-                style: textStyle.copyWith(
-                  fontSize: context.shortestSide36,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: context.shortestSide / 36,
                 ),
               );
             },
           ),
           SizedBox(
-            height: context.shortestSide28,
+            height: context.shortestSide / 28,
           ),
           SizedBox(
-            height: context.shortestSide8,
+            width: context.height / 8,
+            height: context.height / 8,
             child: Wrap(
               children: [
                 if (image != null)
@@ -92,33 +92,34 @@ Widget _buildWithWindows10(
                     ),
                   ),
                 SizedBox(
-                  width: context.shortestSide36,
+                  width: context.shortestSide / 36,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'For more information about this issue and possible fixes, visit $url',
-                      style: textStyle.copyWith(
-                        fontSize: context.shortestSide40,
+                      'For more information about this issue and possible fixes, visit\n$url',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: context.shortestSide / 40,
                       ),
                     ),
                     SizedBox(
-                      height: context.shortestSide36,
+                      height: context.shortestSide / 48,
                     ),
                     Text(
                       'If you call a support person, give them this info:',
-                      style: textStyle.copyWith(
-                        fontSize: context.shortestSide48,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: context.shortestSide / 48,
                       ),
                     ),
                     Text(
-                      stopCode == null
-                          ? '$exception'
-                          : 'Stop code: ${stopCode.name}',
-                      style: textStyle.copyWith(
-                        fontSize: context.shortestSide48,
+                      stopCode?.name ?? '$exception',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: context.shortestSide / 48,
                       ),
                     ),
                   ],

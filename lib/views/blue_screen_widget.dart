@@ -6,15 +6,18 @@ import '/exports/utils.dart';
 import '/exports/views.dart';
 
 part '../widgets/safe_mode.dart';
-part '../widgets/windows10.dart';
-part '../widgets/windows11.dart';
+part '../widgets/windows_10.dart';
+part '../widgets/windows_11.dart';
 
 final class BlueScreenWidget extends StatelessWidget {
   /// Class for information provided to [ErrorWidget] callbacks.
   final Object exception;
 
-  /// The type of the [BlueScreenWidget].
-  final OperatingSystem? type;
+  /// The system used for display on [BlueScreenWidget].
+  final OperatingSystem? system;
+
+  /// The language used for display on [BlueScreenWidget].
+  final DisplayLanguage language;
 
   /// If true, the [BlueScreenWidget] will be rebuilt
   /// when the progress is completed.
@@ -68,9 +71,10 @@ final class BlueScreenWidget extends StatelessWidget {
     this.textColor,
     this.backgroundColor,
     this.fontFamily,
-  })  : type = null,
+  })  : system = null,
         rebuild = false,
         repeatable = false,
+        language = DisplayLanguage.en,
         url = '',
         emoticon = '',
         image = null,
@@ -79,7 +83,7 @@ final class BlueScreenWidget extends StatelessWidget {
         duration = Duration.zero,
         onCompleted = null;
 
-  /// Creates a [BlueScreenWidget] with type [OperatingSystem.windows10].
+  /// Creates a [BlueScreenWidget] with [OperatingSystem.windows10].
   const BlueScreenWidget.withWindows10(
     this.exception, {
     super.key,
@@ -92,12 +96,13 @@ final class BlueScreenWidget extends StatelessWidget {
     this.backgroundColor,
     this.stopCode,
     this.image = StopCode.image,
+    this.language = DisplayLanguage.en,
     this.period = const Duration(seconds: 1),
     this.duration = const Duration(seconds: 5),
     this.onCompleted,
-  }) : type = OperatingSystem.windows10;
+  }) : system = OperatingSystem.windows10;
 
-  /// Creates a [BlueScreenWidget] with type [OperatingSystem.windows11].
+  /// Creates a [BlueScreenWidget] with [OperatingSystem.windows11].
   const BlueScreenWidget.withWindows11(
     this.exception, {
     super.key,
@@ -110,17 +115,18 @@ final class BlueScreenWidget extends StatelessWidget {
     this.backgroundColor,
     this.stopCode,
     this.image = StopCode.image,
+    this.language = DisplayLanguage.en,
     this.period = const Duration(seconds: 1),
     this.duration = const Duration(seconds: 5),
     this.onCompleted,
-  }) : type = OperatingSystem.windows11;
+  }) : system = OperatingSystem.windows11;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Builder(
         builder: (context) {
-          switch (type) {
+          switch (system) {
             case OperatingSystem.windows10:
               return _buildWithWindows10(
                 context,
@@ -133,10 +139,12 @@ final class BlueScreenWidget extends StatelessWidget {
                 emoticon: emoticon,
                 fontFamily: fontFamily,
                 image: image,
+                language: language,
                 stopCode: stopCode,
                 period: period,
                 duration: duration,
                 onCompleted: onCompleted,
+                system: OperatingSystem.windows10,
               );
             case OperatingSystem.windows11:
               return _buildWithWindows11(
@@ -150,10 +158,12 @@ final class BlueScreenWidget extends StatelessWidget {
                 emoticon: emoticon,
                 fontFamily: fontFamily,
                 image: image,
+                language: language,
                 stopCode: stopCode,
                 period: period,
                 duration: duration,
                 onCompleted: onCompleted,
+                system: OperatingSystem.windows11,
               );
             default:
               return _buildSafeMode(

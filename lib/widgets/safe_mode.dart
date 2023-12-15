@@ -46,7 +46,7 @@ Widget _buildSafeMode({
       style: TextStyle(
         fontWeight: FontWeight.bold,
         fontFamily: fontFamily ?? FontFamily.segoe,
-        color: textColor ?? context.colorScheme.onBackground,
+        color: textColor ?? Theme.of(context).colorScheme.onBackground,
       ),
     ),
   );

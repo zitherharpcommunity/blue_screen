@@ -11,6 +11,8 @@
 - Windows 11
 
 ## Font families
+> All fonts were downloaded from Microsoft.
+
 | Font name | File name | Description |
 | - | - | - |
 | `Chs` | chs_boot.ttf | *Simplified Chinese* |

@@ -1,3 +1,3 @@
-## 0.0.1
+## 1.0.0
 
-* TODO: Describe initial release.
+* Implements UI for `Windows10` and `Windows11` systems with support English only.
