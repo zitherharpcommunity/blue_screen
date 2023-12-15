@@ -17,5 +17,5 @@
 /// And this library allows you to create a custom [BlueScreenWidget] in your own app.
 library blue_screen;
 
-export '/exports/data.dart';
-export '/exports/views.dart';
+export 'src/exports/data.dart';
+export 'src/exports/views.dart';

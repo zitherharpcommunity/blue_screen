@@ -1,6 +1,6 @@
-part of '/views/blue_screen_widget.dart';
+part of '/src/views/blue_screen_widget.dart';
 
-Widget _buildWithWindows10(
+Widget _buildWithWindows11(
   BuildContext context,
   Object exception, {
   required bool rebuild,
@@ -11,9 +11,9 @@ Widget _buildWithWindows10(
   required String url,
   required String? fontFamily,
   required StopCode? stopCode,
+  required ImageProvider? image,
   required OperatingSystem system,
   required DisplayLanguage language,
-  required ImageProvider? image,
   required Duration period,
   required Duration duration,
   required void Function()? onCompleted,
@@ -26,17 +26,15 @@ Widget _buildWithWindows10(
       fontFamily: fontFamily ?? system.fontFamily,
     ),
     child: Container(
+      height: context.height,
       color: backgroundColor ?? system.backgroundColor,
       padding: EdgeInsets.all(context.shortestSide10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          SizedBox(
-            height: context.shortestSide10,
-          ),
           Text(
             emoticon,
-            style: textStyle.copyWith(
+             style: textStyle.copyWith(
               fontSize: context.shortestSide5,
             ),
           ),
@@ -44,7 +42,7 @@ Widget _buildWithWindows10(
             height: context.shortestSide28,
           ),
           Text(
-            'Your PC ran into a problem and needs to restart.\n'
+            'Your device ran into a problem and needs to restart.\n'
             'We\'re just collecting some error info, and then we\'ll restart for you.',
             style: textStyle.copyWith(
               fontSize: context.shortestSide36,
@@ -59,11 +57,8 @@ Widget _buildWithWindows10(
               period,
               (_) {
                 final tick = 100 / (duration.inSeconds / _);
-                if (tick > 100 && repeatable) {
-                  onCompleted?.call();
-                  if (rebuild) BlueScreenBuilder.rebuild(context);
-                }
-                return tick > 100 ? 100 : tick;
+                if (tick > 100) BlueScreenBuilder.rebuild(context);
+                return tick;
               },
             ),
             builder: (context, snapshot) {
@@ -77,7 +72,7 @@ Widget _buildWithWindows10(
             },
           ),
           SizedBox(
-            height: context.shortestSide28,
+            height: context.shortestSide / 28,
           ),
           SizedBox(
             height: context.shortestSide8,
@@ -101,7 +96,7 @@ Widget _buildWithWindows10(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'For more information about this issue and possible fixes, visit $url',
+                      'For more information about this issue and possible fixes, visit\n$url',
                       style: textStyle.copyWith(
                         fontSize: context.shortestSide40,
                       ),

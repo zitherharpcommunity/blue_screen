@@ -1,7 +1,7 @@
 name: blue_screen
-description: Blue Screen of Death alternative to the default ErrorWidget used for Flutter apps.
-version: 1.0.0
-homepage: https://pub.dev/packages/blue_screen
+description: A BlueScreen widget replaces the default ErrorWidget used for Flutter apps.
+version: 1.0.1
+homepage: https://pub.dev/documentation/blue_screen
 repository: https://github.com/zitherharpcommunity/blue_screen
 
 environment:

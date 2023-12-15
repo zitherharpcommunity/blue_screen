@@ -1,4 +1,4 @@
-part of '/views/blue_screen_widget.dart';
+part of '/src/views/blue_screen_widget.dart';
 
 /// Runs [body] in its own a safe mode.
 ///

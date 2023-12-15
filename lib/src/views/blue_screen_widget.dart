@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'dart:developer';
 
-import '/exports/data.dart';
-import '/exports/utils.dart';
-import '/exports/views.dart';
+import '/src/exports/data.dart';
+import '/src/exports/utils.dart';
+import '/src/exports/views.dart';
 
-part '../widgets/safe_mode.dart';
-part '../widgets/windows_10.dart';
-part '../widgets/windows_11.dart';
+part '/src/widgets/safe_mode.dart';
+part '/src/widgets/windows_10.dart';
+part '/src/widgets/windows_11.dart';
 
 final class BlueScreenWidget extends StatelessWidget {
   /// Class for information provided to [ErrorWidget] callbacks.

@@ -1,5 +1,5 @@
-import '/exports/data.dart';
-import '/exports/utils.dart';
+import '../exports/data.dart';
+import '../exports/utils.dart';
 
 /// The operating system used for builds [BlueScreenWidget].
 enum OperatingSystem {

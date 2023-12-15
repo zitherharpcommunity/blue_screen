@@ -1,6 +1,6 @@
 # blue_screen
 
-A Blue Screen widget replaces the default ErrorWidget used for Flutter apps.
+A BlueScreen widget replaces the default ErrorWidget used for Flutter apps.
 
 ![screenshot](/assets/screenshot.png)
 
@@ -29,14 +29,13 @@ or unexpected termination of a crucial process or thread.
 flutter pub add blue_screen
 ```
 
-> See more details at 
-[Installing](https://pub.dev/packages/blue_screen/install) page.
+> See more details at [Installing](https://pub.dev/packages/blue_screen/install) page.
 
 ### Declare the font assets (optional)
 
 - Now that you've imported the package, tell Flutter where to find the fonts from the `blue_screen`.
-- To declare package fonts, prefix the path to the font with `packages/blue_screen`. 
-This tells Flutter to look in the lib folder of the package for the font.
+- To declare fonts in this package, prefix the path to the font with `packages/blue_screen`. 
+This tells Flutter to look in the `lib` folder of the package for the font.
 > See all package fonts at [here](/example/README.md).
 
 ```yaml
@@ -47,7 +46,7 @@ flutter:
         - asset: packages/blue_screen/fonts/<file_name>
 ```
 
-- To use package fonts, declare which font you'd like to use like this in widgets.
+- To use fonts in this package, declare which font you'd like to use like this in widgets.
 ```dart
 ...
   fontFamily: '<font_name>',
@@ -56,8 +55,7 @@ flutter:
 
 ## Usage
 
-> See complete example at 
-[Example](https://pub.dev/packages/blue_screen/example) page.
+> See complete example at [Example](https://pub.dev/packages/blue_screen/example) page.
 
 ```dart
 import 'package:blue_screen/blue_screen.dart';

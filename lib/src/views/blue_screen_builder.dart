@@ -1,7 +1,7 @@
-import '/exports/utils.dart';
-import '/exports/views.dart';
+import '../exports/utils.dart';
+import '../exports/views.dart';
 
-/// A stateless utility widget whose [BlueScreenBuilderState.rebuild] method
+/// A stateless utility widget whose rebuild method
 /// uses its [builder] callback to create the widget's child.
 final class BlueScreenBuilder extends StatefulWidget {
   /// Creates a widget that delegates its build to a [BlueScreenWidget].
@@ -24,7 +24,9 @@ final class BlueScreenBuilder extends StatefulWidget {
 
   /// Rebuilds the widget that builds its child.
   static void rebuild(BuildContext context) {
-    return context.findAncestorStateOfType<_BlueScreenBuilderState>()?.rebuild();
+    return context
+        .findAncestorStateOfType<_BlueScreenBuilderState>()
+        ?.rebuild();
   }
 }
 

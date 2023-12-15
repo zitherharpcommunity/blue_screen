@@ -1,4 +1,4 @@
-import '/exports/utils.dart';
+import '../exports/utils.dart';
 
 extension ShortestSideUtils on BuildContext {
   double get shortestSide5 => shortestSide / 5;

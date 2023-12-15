@@ -41,6 +41,9 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
         }
       },
       child: MaterialApp(
+        theme: ThemeData(
+          fontFamily: FontFamily.segoe,
+        ),
         title: 'blue_screen_example',
         debugShowCheckedModeBanner: false,
         home: SafeModeBuilder(
