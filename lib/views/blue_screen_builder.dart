@@ -20,16 +20,15 @@ final class BlueScreenBuilder extends StatefulWidget {
   final BlueScreenWidget Function(Object exception) builder;
 
   @override
-  State<BlueScreenBuilder> createState() => BlueScreenBuilderState();
+  State<BlueScreenBuilder> createState() => _BlueScreenBuilderState();
 
-  /// Returns the [BlueScreenBuilderState] object
-  /// of the nearest ancestor [BlueScreenBuilder] widget.
-  static BlueScreenBuilderState? of(BuildContext context) {
-    return context.findAncestorStateOfType<BlueScreenBuilderState>();
+  /// Rebuilds the widget that builds its child.
+  static void rebuild(BuildContext context) {
+    return context.findAncestorStateOfType<_BlueScreenBuilderState>()?.rebuild();
   }
 }
 
-class BlueScreenBuilderState extends State<BlueScreenBuilder> {
+class _BlueScreenBuilderState extends State<BlueScreenBuilder> {
   var key = UniqueKey();
 
   @override

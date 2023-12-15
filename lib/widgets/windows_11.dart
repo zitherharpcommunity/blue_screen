@@ -58,7 +58,7 @@ Widget _buildWithWindows11(
               period,
               (_) {
                 final tick = 100 / (duration.inSeconds / _);
-                if (tick > 100) BlueScreenBuilder.of(context)?.rebuild();
+                if (tick > 100) BlueScreenBuilder.rebuild(context);
                 return tick;
               },
             ),

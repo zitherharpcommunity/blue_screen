@@ -5,14 +5,14 @@ import '/exports/views.dart';
 class SafeModeBuilder extends StatelessWidget {
   /// Creates a widget that delegates its build in a safe mode.
   ///
-  /// The [builder] and [provider] argument must not be null.
+  /// The [builder] and [creator] argument must not be null.
   ///
   /// If [enable] is true, the [builder] will be called in a safe mode.
   const SafeModeBuilder({
     super.key,
     this.enable = true,
     required this.builder,
-    required this.provider,
+    required this.creator,
   });
 
   /// If true, the [builder] will be called in a safe mode.
@@ -28,7 +28,7 @@ class SafeModeBuilder extends StatelessWidget {
   final Widget Function(BuildContext context) builder;
 
   /// Called to obtain the [BlueScreenWidget].
-  final BlueScreenWidget Function(Object exception) provider;
+  final BlueScreenWidget Function(Object exception) creator;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class SafeModeBuilder extends StatelessWidget {
       try {
         return builder(context);
       } catch (exception) {
-        return provider(exception);
+        return creator(exception);
       }
     }
     return builder(context);

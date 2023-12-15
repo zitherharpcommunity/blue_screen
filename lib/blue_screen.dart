@@ -14,7 +14,7 @@
 /// an issue with or without a device driver,
 /// or unexpected termination of a crucial process or thread.
 ///
-/// And this library allows you to create a custom [BlueScreenWidget] in your own project.
+/// And this library allows you to create a custom [BlueScreenWidget] in your own app.
 library blue_screen;
 
 export '/exports/data.dart';

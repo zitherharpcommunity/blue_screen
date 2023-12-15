@@ -5,10 +5,10 @@ enum DisplayLanguage {
   en,
 
   /// Simplified Chinese.
-  zh_CN,
+  zhHans,
 
   /// Traditional Chinese.
-  zh_TW,
+  zhHant,
 
   /// Korean.
   kr,

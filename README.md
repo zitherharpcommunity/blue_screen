@@ -1,5 +1,7 @@
 # blue_screen
 
+A Blue Screen widget replaces the default ErrorWidget used for Flutter apps.
+
 ![screenshot](/assets/screenshot.png)
 
 > The **Blue Screen of Death (BSoD)**, **Blue screen error**, **Blue Screen**, **fatal error**, or **bugcheck**, 
@@ -14,6 +16,8 @@ or unexpected termination of a crucial process or thread.
 - Supports run app in a safe mode with `runSafeMode` function.
 - Use `BlueScreenWidget` instead of the default `ErrorWidget` to show error messages.
 - Wrap widgets in a `SafeModeBuilder` to avoid throw an exception when run app in release mode.
+
+> **Safe mode** is a diagnostic mode of a computer operating system (OS). It can also refer to a mode of operation by application software. Safe mode is intended to help fix most, if not all, problems within an operating system. It is also widely used for removing rogue security software.
 
 ## Getting started
 
@@ -33,7 +37,7 @@ flutter pub add blue_screen
 - Now that you've imported the package, tell Flutter where to find the fonts from the `blue_screen`.
 - To declare package fonts, prefix the path to the font with `packages/blue_screen`. 
 This tells Flutter to look in the lib folder of the package for the font.
-> See all package fonts at [here](/blue_screen/example/README.md).
+> See all package fonts at [here](/example/README.md).
 
 ```yaml
 flutter:

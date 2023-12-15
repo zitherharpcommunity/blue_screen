@@ -61,7 +61,7 @@ Widget _buildWithWindows10(
                 final tick = 100 / (duration.inSeconds / _);
                 if (tick > 100 && repeatable) {
                   onCompleted?.call();
-                  if (rebuild) BlueScreenBuilder.of(context)?.rebuild();
+                  if (rebuild) BlueScreenBuilder.rebuild(context);
                 }
                 return tick > 100 ? 100 : tick;
               },

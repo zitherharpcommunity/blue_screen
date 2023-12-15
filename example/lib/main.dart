@@ -33,6 +33,7 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
             exception,
             rebuild: true,
             repeatable: true,
+            stopCode: StopCode.ABNORMAL_RESET_DETECTED,
           );
         } else {
           // In release builds, show a blue screen on Windows 11 instead:
@@ -68,7 +69,7 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
             }
           },
           // Show a default BlueScreenWidget when app throws an error.
-          provider: (exception) => BlueScreenWidget(exception),
+          creator: (exception) => BlueScreenWidget(exception),
         ),
       ),
     );
