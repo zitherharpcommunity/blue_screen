@@ -46,7 +46,7 @@ flutter:
         - asset: packages/blue_screen/fonts/<file_name>
 ```
 
-- To use fonts in this package, declare which font you'd like to use like this in widgets.
+- To use fonts in this package, declare which font you'd like to use like this.
 ```dart
 ...
   fontFamily: '<font_name>',
@@ -65,7 +65,10 @@ void main() {
   // Put the app in a safe mode.
   runSafeMode(() {
     // Start the app.
-    runApp(const BlueScreenExampleApp());
+    runApp(
+      const BlueScreenExampleApp(),
+      onError: (error, stackTrace) => print('$error'),
+    );
   });
 }
 ```

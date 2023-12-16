@@ -1,6 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
-import '../exports/utils.dart';
+import '/src/exports/utils.dart';
 
 /// This section contains common bug check codes
 /// that are displayed on the blue bug check screen.

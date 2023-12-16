@@ -1,3 +1,4 @@
+/// The font family used for display on [BlueScreenWidget].
 sealed class FontFamily {
   /// Simplified Chinese.
   static const String chs = 'Chs';

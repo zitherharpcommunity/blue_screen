@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import '/src/exports/utils.dart';
 
 extension MediaQueryUtils on BuildContext {
   /// The horizontal extent of this size.

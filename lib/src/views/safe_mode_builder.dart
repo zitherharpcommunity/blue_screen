@@ -1,5 +1,5 @@
-import '../exports/utils.dart';
-import '../exports/views.dart';
+import '/src/exports/utils.dart';
+import '/src/exports/views.dart';
 
 /// A stateless utility widget whose built in a safe mode.
 class SafeModeBuilder extends StatelessWidget {

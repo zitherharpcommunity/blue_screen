@@ -12,10 +12,11 @@ packages:
   blue_screen:
     dependency: "direct main"
     description:
-      path: ".."
-      relative: true
-    source: path
-    version: "1.0.1"
+      name: blue_screen
+      sha256: af22a7df79361df8b5744f1d46104e5bb3cb569aa03f29a19ab2afd1c657fa15
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   boolean_selector:
     dependency: transitive
     description:

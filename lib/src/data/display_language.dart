@@ -1,5 +1,4 @@
-// ignore_for_file: constant_identifier_names
-
+/// The language used for display on [BlueScreenWidget].
 enum DisplayLanguage {
   /// English.
   en,

@@ -34,7 +34,7 @@ Widget _buildWithWindows11(
         children: [
           Text(
             emoticon,
-             style: textStyle.copyWith(
+            style: textStyle.copyWith(
               fontSize: context.shortestSide5,
             ),
           ),

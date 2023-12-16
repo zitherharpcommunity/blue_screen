@@ -1,4 +1,4 @@
 export 'package:flutter/material.dart';
 
-export '../utils/media_query.dart';
-export '../utils/shortest_side.dart';
+export '/src/utils/media_query.dart';
+export '/src/utils/shortest_side.dart';
