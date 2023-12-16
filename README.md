@@ -13,9 +13,8 @@ Possible issues include hardware failure, an issue with or without a device driv
 or unexpected termination of a crucial process or thread. 
 
 ## Features
-- Supports run app in a safe mode with `runSafeMode` function.
-- Use `BlueScreenWidget` instead of the default `ErrorWidget` to show error messages.
-- Wrap widgets in a `SafeModeBuilder` to avoid throw an exception when run app in release mode.
+- Support run app in a safe mode with `runSafeMode` function or wrap widgets in a `SafeModeBuilder` to avoid throw an exception when run app in release mode.
+- You can use a `BlueScreenWidget` instead of the default `ErrorWidget` of Flutter to show error messages with `BlueScreenBuilder` widget or use it likes other widgets in your app.
 
 > **Safe mode** is a diagnostic mode of a computer operating system (OS). It can also refer to a mode of operation by application software. Safe mode is intended to help fix most, if not all, problems within an operating system. It is also widely used for removing rogue security software.
 
@@ -36,7 +35,7 @@ flutter pub add blue_screen
 - Now that you've imported the package, tell Flutter where to find the fonts from the `blue_screen`.
 - To declare fonts in this package, prefix the path to the font with `packages/blue_screen`. 
 This tells Flutter to look in the `lib` folder of the package for the font.
-> See all package fonts at [here](/example/README.md).
+> See all fonts and other data assets at [here](/example/README.md).
 
 ```yaml
 flutter:
@@ -65,13 +64,11 @@ void main() {
   // Put the app in a safe mode.
   runSafeMode(() {
     // Start the app.
-    runApp(
-      const BlueScreenExampleApp(),
-      onError: (error, stackTrace) => print('$error'),
-    );
+    runApp(const BlueScreenExampleApp());
   });
 }
 ```
+![screenshot](/example/screenshot.png)
 
 ## Additional information
 

@@ -33,7 +33,7 @@
 - Windows 11
 
 ## Stop codes
-> See more details at [here](https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/bug-check-code-reference2).
+> See more details about to stop codes at [here](https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/bug-check-code-reference2).
 
 | Code | Name |
 | - | - |
