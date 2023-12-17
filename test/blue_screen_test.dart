@@ -1,9 +1,11 @@
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 
 void main() {
-  test('blue_screen_test', () {
+  test('blue screen_example', () {
     var counter = 0;
+
     counter++;
+
     expect(counter, 1);
   });
 }
