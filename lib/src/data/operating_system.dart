@@ -13,6 +13,12 @@ enum OperatingSystem {
     fontFamily: FontFamily.segoe,
     textColor: Colors.white,
     backgroundColor: Colors.black,
+  ),
+
+  windowsServer(
+    fontFamily: FontFamily.segoe,
+    textColor: Colors.white,
+    backgroundColor: Colors.blue,
   );
 
   final String? fontFamily;

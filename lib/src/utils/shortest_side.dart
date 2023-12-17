@@ -1,6 +1,10 @@
 import '/src/exports/utils.dart';
 
 extension ShortestSideUtils on BuildContext {
+  double get shortestSide2 => shortestSide / 2;
+
+  double get shortestSide3 => shortestSide / 3;
+
   double get shortestSide5 => shortestSide / 5;
 
   double get shortestSide8 => shortestSide / 8;

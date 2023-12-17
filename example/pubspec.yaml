@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   blue_screen:
+    path: ../../blue_screen
 
 dev_dependencies:
   flutter_test:

@@ -5,9 +5,10 @@ import '/src/exports/data.dart';
 import '/src/exports/utils.dart';
 import '/src/exports/views.dart';
 
-part '/src/widgets/safe_mode.dart';
-part '/src/widgets/windows_10.dart';
-part '/src/widgets/windows_11.dart';
+part '../widgets/safe_mode.dart';
+part '../widgets/windows_10.dart';
+part '../widgets/windows_11.dart';
+part '../widgets/windows_server.dart';
 
 final class BlueScreenWidget extends StatelessWidget {
   /// Class for information provided to [ErrorWidget] callbacks.
@@ -27,6 +28,9 @@ final class BlueScreenWidget extends StatelessWidget {
 
   /// If true, the progress can be repeated.
   final bool repeatable;
+
+  /// If true, the [BlueScreenWidget] will be scrollable.
+  final bool scrollable;
 
   /// The color to use when painting the text.
   final Color? textColor;
@@ -74,6 +78,7 @@ final class BlueScreenWidget extends StatelessWidget {
   })  : system = null,
         rebuild = false,
         repeatable = false,
+        scrollable = false,
         language = DisplayLanguage.en,
         url = '',
         emoticon = '',
@@ -89,6 +94,7 @@ final class BlueScreenWidget extends StatelessWidget {
     super.key,
     this.rebuild = false,
     this.repeatable = false,
+    this.scrollable = false,
     this.url = StopCode.url,
     this.emoticon = StopCode.emoticon,
     this.fontFamily,
@@ -108,6 +114,7 @@ final class BlueScreenWidget extends StatelessWidget {
     super.key,
     this.rebuild = false,
     this.repeatable = false,
+    this.scrollable = false,
     this.url = StopCode.url,
     this.emoticon = StopCode.emoticon,
     this.fontFamily,
@@ -120,6 +127,26 @@ final class BlueScreenWidget extends StatelessWidget {
     this.duration = const Duration(seconds: 5),
     this.onCompleted,
   }) : system = OperatingSystem.windows11;
+
+  /// Creates a [BlueScreenWidget] with [OperatingSystem.windowsServer].
+  const BlueScreenWidget.withWindowsServer(
+    this.exception, {
+    super.key,
+    this.rebuild = false,
+    this.repeatable = false,
+    this.scrollable = false,
+    this.fontFamily,
+    this.textColor,
+    this.backgroundColor,
+    this.stopCode,
+    this.language = DisplayLanguage.en,
+    this.period = const Duration(seconds: 1),
+    this.duration = const Duration(seconds: 5),
+    this.onCompleted,
+  })  : system = OperatingSystem.windowsServer,
+        url = '',
+        emoticon = '',
+        image = null;
 
   @override
   Widget build(BuildContext context) {
@@ -164,6 +191,23 @@ final class BlueScreenWidget extends StatelessWidget {
                 duration: duration,
                 onCompleted: onCompleted,
                 system: OperatingSystem.windows11,
+              );
+            case OperatingSystem.windowsServer:
+              return _buildWithWindowsServer(
+                context,
+                exception,
+                rebuild: rebuild,
+                repeatable: repeatable,
+                scrollable: scrollable,
+                textColor: textColor,
+                backgroundColor: backgroundColor,
+                fontFamily: fontFamily,
+                language: language,
+                stopCode: stopCode,
+                period: period,
+                duration: duration,
+                onCompleted: onCompleted,
+                system: OperatingSystem.windowsServer,
               );
             default:
               return _buildSafeMode(
