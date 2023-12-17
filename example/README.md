@@ -31,6 +31,7 @@
 ## Operating systems
 - Windows 10
 - Windows 11
+- Windows Server
 
 ## Stop codes
 > See more details about to stop codes at [here](https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/bug-check-code-reference2).
