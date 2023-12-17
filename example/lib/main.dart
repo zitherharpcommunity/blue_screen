@@ -1,5 +1,4 @@
 import 'package:blue_screen/blue_screen.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 /// Flutter code sample for [BlueScreenWidget].
@@ -11,6 +10,7 @@ void main() {
   });
 }
 
+/// The [BlueScreenWidget] example app.
 class BlueScreenExampleApp extends StatefulWidget {
   const BlueScreenExampleApp({super.key});
 
@@ -19,25 +19,40 @@ class BlueScreenExampleApp extends StatefulWidget {
 }
 
 class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
-  var throwError = false;
+  OperatingSystem? operatingSystem;
 
   @override
   Widget build(BuildContext context) {
     // Set the BlueScreen's builder before the app is started.
     return BlueScreenBuilder(
       builder: (exception) {
-        // If we're in debug mode,
-        // use the blue screen on Windows 10 to shows the error.
-        if (kDebugMode) {
-          return BlueScreenWidget.withWindows10(
-            exception,
-            rebuild: true,
-            repeatable: true,
-            stopCode: StopCode.ABNORMAL_RESET_DETECTED,
-          );
-        } else {
-          // In release builds, show a blue screen on Windows 11 instead:
-          return BlueScreenWidget.withWindows11(exception);
+        // If operating system is selected,
+        // use the blue screen with specificied system to shows the error.
+        switch (operatingSystem) {
+          case OperatingSystem.windows10:
+            return BlueScreenWidget.withWindows10(
+              exception,
+              rebuild: true,
+              repeatable: true,
+              stopCode: StopCode.random(),
+            );
+          case OperatingSystem.windows11:
+            return BlueScreenWidget.withWindows11(
+              exception,
+              rebuild: true,
+              repeatable: true,
+              stopCode: StopCode.random(),
+            );
+          case OperatingSystem.windowsServer:
+            return BlueScreenWidget.withWindowsServer(
+              exception,
+              rebuild: true,
+              repeatable: true,
+              stopCode: StopCode.random(),
+            );
+          default:
+            // By default, show a blue screen in safe mode.
+            return BlueScreenWidget(exception);
         }
       },
       child: MaterialApp(
@@ -49,7 +64,7 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
         home: SafeModeBuilder(
           enable: false,
           builder: (context) {
-            if (throwError) {
+            if (operatingSystem != null) {
               // Since the error widget is only used during a build, in this contrived example,
               // we purposely throw an exception in a build function.
               throw Exception('oh no, an error');
@@ -61,9 +76,25 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
                 body: Center(
                   child: TextButton(
                     onPressed: () {
-                      setState(() {
-                        throwError = true;
-                      });
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return SimpleDialog(
+                            title: const Text('BlueScreen Types'),
+                            children: OperatingSystem.values.map((os) {
+                              return SimpleDialogOption(
+                                child: Text(os.name),
+                                onPressed: () {
+                                  setState(() {
+                                    operatingSystem = os;
+                                  });
+                                  Navigator.pop(context);
+                                },
+                              );
+                            }).toList(),
+                          );
+                        },
+                      );
                     },
                     child: const Text('Error Prone'),
                   ),

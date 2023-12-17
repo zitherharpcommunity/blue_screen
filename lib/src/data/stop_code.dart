@@ -1,5 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
+import 'dart:math';
+
 import '/src/exports/utils.dart';
 
 /// This section contains common bug check codes
@@ -383,15 +385,21 @@ enum StopCode {
   STATUS_IMAGE_CHECKSUM_MISMATCH(0xC0000221),
   MANUALLY_INITIATED_CRASH1(0xDEADDEAD);
 
+  /// The code for this bug check.
   final int code;
 
   const StopCode(this.code);
 
+  /// The emoticon used to display for this bug check.
   static const String emoticon = ':(';
 
   /// The url used to visit for more information.
   static const String url = 'https://www.windows.com/stopcode';
 
+  /// The image used to display for this bug check.
   static const ImageProvider image =
       AssetImage('assets/image.png', package: 'blue_screen');
+
+  /// Returns a [StopCode] randomly.
+  static StopCode random() => values[Random.secure().nextInt(values.length)];
 }
