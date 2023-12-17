@@ -3,7 +3,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Deploy to Github Pages
+name: pages-build-setup
 
 on:
   push:

@@ -28,14 +28,19 @@ void runSafeMode(
   );
 }
 
-Widget _buildSafeMode({
-  required BuildContext context,
-  required Object exception,
+/// Builds a [BlueScreenWidget] in safe mode.
+Widget _buildSafeMode(
+  BuildContext context,
+  Object exception, {
+  required double? width,
+  required double? height,
   required Color? textColor,
   required Color? backgroundColor,
   required String? fontFamily,
 }) {
   return Container(
+    width: width ?? context.width,
+    height: height ?? context.height,
     color: backgroundColor ?? Colors.blue,
     padding: EdgeInsets.symmetric(
       vertical: context.shortestSide5,

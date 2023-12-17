@@ -1,8 +1,11 @@
 part of '/src/views/blue_screen_widget.dart';
 
+/// Builds a [BlueScreenWidget] with Windows 10.
 Widget _buildWithWindows10(
   BuildContext context,
   Object exception, {
+  required double? width,
+  required double? height,
   required bool rebuild,
   required bool repeatable,
   required Color? textColor,
@@ -23,6 +26,8 @@ Widget _buildWithWindows10(
     fontFamily: fontFamily ?? system.fontFamily,
   );
   return Container(
+    width: width ?? context.width,
+    height: height ?? context.height,
     color: backgroundColor ?? system.backgroundColor,
     padding: EdgeInsets.all(context.shortestSide10),
     child: Column(

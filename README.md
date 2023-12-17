@@ -54,7 +54,8 @@ flutter:
 
 ## Usage
 
-> See complete example at [Example](https://pub.dev/packages/blue_screen/example) page.
+> See complete example at [Example](https://pub.dev/packages/blue_screen/example) page
+or **live demo** at [here](https://zitherharpcommunity.github.io/blue_screen).
 
 ```dart
 import 'package:blue_screen/blue_screen.dart';

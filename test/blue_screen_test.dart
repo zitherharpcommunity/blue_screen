@@ -1,7 +1,7 @@
 import 'package:test/test.dart';
 
 void main() {
-  test('blue screen_example', () {
+  test('blue_screen_example', () {
     var counter = 0;
 
     counter++;

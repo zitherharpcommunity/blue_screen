@@ -1,8 +1,11 @@
 part of '/src/views/blue_screen_widget.dart';
 
+/// Builds a [BlueScreenWidget] with Windows Server.
 Widget _buildWithWindowsServer(
   BuildContext context,
   Object exception, {
+  required double? width,
+  required double? height,
   required bool rebuild,
   required bool repeatable,
   required bool scrollable,
@@ -21,6 +24,8 @@ Widget _buildWithWindowsServer(
     fontFamily: fontFamily ?? system.fontFamily,
   );
   return Container(
+    width: width ?? context.width,
+    height: height ?? context.height,
     color: backgroundColor ?? system.backgroundColor,
     padding: EdgeInsets.only(
       top: context.shortestSide10,

@@ -10,6 +10,7 @@ part '../widgets/windows_10.dart';
 part '../widgets/windows_11.dart';
 part '../widgets/windows_server.dart';
 
+/// A BlueScreen widget replaces the default [ErrorWidget] used for Flutter apps.
 final class BlueScreenWidget extends StatelessWidget {
   /// Class for information provided to [ErrorWidget] callbacks.
   final Object exception;
@@ -19,6 +20,12 @@ final class BlueScreenWidget extends StatelessWidget {
 
   /// The language used for display on [BlueScreenWidget].
   final DisplayLanguage language;
+
+  /// The width of the [BlueScreenWidget].
+  final double? width;
+
+  /// The height of the [BlueScreenWidget].
+  final double? height;
 
   /// If true, the [BlueScreenWidget] will be rebuilt
   /// when the progress is completed.
@@ -72,6 +79,8 @@ final class BlueScreenWidget extends StatelessWidget {
   const BlueScreenWidget(
     this.exception, {
     super.key,
+    this.width,
+    this.height,
     this.textColor,
     this.backgroundColor,
     this.fontFamily,
@@ -92,6 +101,8 @@ final class BlueScreenWidget extends StatelessWidget {
   const BlueScreenWidget.withWindows10(
     this.exception, {
     super.key,
+    this.width,
+    this.height,
     this.rebuild = false,
     this.repeatable = false,
     this.scrollable = false,
@@ -112,6 +123,8 @@ final class BlueScreenWidget extends StatelessWidget {
   const BlueScreenWidget.withWindows11(
     this.exception, {
     super.key,
+    this.width,
+    this.height,
     this.rebuild = false,
     this.repeatable = false,
     this.scrollable = false,
@@ -132,6 +145,8 @@ final class BlueScreenWidget extends StatelessWidget {
   const BlueScreenWidget.withWindowsServer(
     this.exception, {
     super.key,
+    this.width,
+    this.height,
     this.rebuild = false,
     this.repeatable = false,
     this.scrollable = false,
@@ -158,6 +173,8 @@ final class BlueScreenWidget extends StatelessWidget {
               return _buildWithWindows10(
                 context,
                 exception,
+                width: width,
+                height: height,
                 rebuild: rebuild,
                 repeatable: repeatable,
                 textColor: textColor,
@@ -177,6 +194,8 @@ final class BlueScreenWidget extends StatelessWidget {
               return _buildWithWindows11(
                 context,
                 exception,
+                width: width,
+                height: height,
                 rebuild: rebuild,
                 repeatable: repeatable,
                 textColor: textColor,
@@ -196,6 +215,8 @@ final class BlueScreenWidget extends StatelessWidget {
               return _buildWithWindowsServer(
                 context,
                 exception,
+                width: width,
+                height: height,
                 rebuild: rebuild,
                 repeatable: repeatable,
                 scrollable: scrollable,
@@ -211,8 +232,10 @@ final class BlueScreenWidget extends StatelessWidget {
               );
             default:
               return _buildSafeMode(
-                context: context,
-                exception: exception,
+                context,
+                exception,
+                width: width,
+                height: height,
                 textColor: textColor,
                 backgroundColor: backgroundColor,
                 fontFamily: fontFamily,
