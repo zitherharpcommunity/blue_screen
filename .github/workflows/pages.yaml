@@ -18,9 +18,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          workingDir: example
-          targetBranch: pages
-          baseHref: /blue_screen/
+          path: example
+          ref: /blue_screen/
 
       # Note: This workflow uses the latest stable version of the Dart SDK.
       # You can specify other versions if desired, see documentation here:
