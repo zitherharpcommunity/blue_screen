@@ -34,7 +34,7 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
               exception,
               rebuild: true,
               repeatable: true,
-              stopCode: StopCode.random(),
+              //stopCode: StopCode.random(),
             );
           case OperatingSystem.windows11:
             return BlueScreenWidget.withWindows11(
@@ -48,6 +48,7 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
               exception,
               rebuild: true,
               repeatable: true,
+              scrollable: true,
               stopCode: StopCode.random(),
             );
           default:

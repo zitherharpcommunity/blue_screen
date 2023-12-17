@@ -28,17 +28,14 @@ Widget _buildWithWindowsServer(
     height: height ?? context.height,
     color: backgroundColor ?? system.backgroundColor,
     padding: EdgeInsets.only(
+      left: context.shortestSide3,
       top: context.shortestSide10,
-      left: context.shortestSide2,
       right: context.shortestSide10,
     ),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        SizedBox(
-          height: context.shortestSide10,
-        ),
         StreamBuilder(
           initialData: 0,
           stream: Stream.periodic(

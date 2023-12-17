@@ -34,7 +34,7 @@ Widget _buildWithWindows10(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         SizedBox(
-          height: context.shortestSide10,
+          height: context.shortestSide28,
         ),
         Text(
           emoticon,

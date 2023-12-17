@@ -2,7 +2,7 @@
 
 A BlueScreen widget replaces the default ErrorWidget used for Flutter apps.
 
-![screenshot](/assets/screenshot.png)
+![asset_screenshot](/assets/screenshot.png)
 
 > The **Blue Screen of Death (BSoD)**, **Blue screen error**, **Blue Screen**, **fatal error**, or **bugcheck**, 
 and officially known as a **Stop error**, is a critical error screen displayed 
@@ -55,7 +55,7 @@ flutter:
 ## Usage
 
 > See complete example at [Example](https://pub.dev/packages/blue_screen/example) page
-or **live demo** at [here](https://zitherharpcommunity.github.io/blue_screen).
+and **live demo** at [here](https://zitherharpcommunity.github.io/blue_screen).
 
 ```dart
 import 'package:blue_screen/blue_screen.dart';
@@ -69,7 +69,7 @@ void main() {
   });
 }
 ```
-![screenshot](/example/screenshot.png)
+![example_screenshot](/example/screenshot.png)
 
 ## Additional information
 

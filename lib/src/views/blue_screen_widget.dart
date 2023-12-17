@@ -36,7 +36,10 @@ final class BlueScreenWidget extends StatelessWidget {
   /// If true, the progress can be repeated.
   final bool repeatable;
 
-  /// If true, the [BlueScreenWidget] will be scrollable.
+  /// If [scrollable] is `true`,
+  /// the [exception] will be scrollable if it's too long.
+  ///
+  /// If [stopCode] is not `null`, it will be ignored.
   final bool scrollable;
 
   /// The color to use when painting the text.
@@ -105,7 +108,6 @@ final class BlueScreenWidget extends StatelessWidget {
     this.height,
     this.rebuild = false,
     this.repeatable = false,
-    this.scrollable = false,
     this.url = StopCode.url,
     this.emoticon = StopCode.emoticon,
     this.fontFamily,
@@ -117,7 +119,8 @@ final class BlueScreenWidget extends StatelessWidget {
     this.period = const Duration(seconds: 1),
     this.duration = const Duration(seconds: 5),
     this.onCompleted,
-  }) : system = OperatingSystem.windows10;
+  })  : system = OperatingSystem.windows10,
+        scrollable = false;
 
   /// Creates a [BlueScreenWidget] with [OperatingSystem.windows11].
   const BlueScreenWidget.withWindows11(
@@ -127,7 +130,6 @@ final class BlueScreenWidget extends StatelessWidget {
     this.height,
     this.rebuild = false,
     this.repeatable = false,
-    this.scrollable = false,
     this.url = StopCode.url,
     this.emoticon = StopCode.emoticon,
     this.fontFamily,
@@ -139,7 +141,8 @@ final class BlueScreenWidget extends StatelessWidget {
     this.period = const Duration(seconds: 1),
     this.duration = const Duration(seconds: 5),
     this.onCompleted,
-  }) : system = OperatingSystem.windows11;
+  })  : system = OperatingSystem.windows11,
+        scrollable = false;
 
   /// Creates a [BlueScreenWidget] with [OperatingSystem.windowsServer].
   const BlueScreenWidget.withWindowsServer(
