@@ -19,18 +19,24 @@ Widget _buildWithWindowsServer(
   required Duration duration,
   required void Function()? onCompleted,
 }) {
+  width = width ?? context.width;
+  height = height ?? context.height;
+
+  final shortestSide = math.min(width, height);
+
   final textStyle = TextStyle(
     color: textColor ?? system.textColor,
     fontFamily: fontFamily ?? system.fontFamily,
   );
+
   return Container(
-    width: width ?? context.width,
-    height: height ?? context.height,
+    width: width,
+    height: height,
     color: backgroundColor ?? system.backgroundColor,
     padding: EdgeInsets.only(
-      left: context.shortestSide3,
-      top: context.shortestSide10,
-      right: context.shortestSide10,
+      left: shortestSide / 3,
+      top: shortestSide / 10,
+      right: shortestSide / 10,
     ),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -54,9 +60,7 @@ Widget _buildWithWindowsServer(
             return Text(
               'Your PC ran into a problem and needs to restart.\n'
               'We\'re just collecting some error info, and then we\'ll restart for you. ($progress% complete)',
-              style: textStyle.copyWith(
-                fontSize: context.shortestSide28,
-              ),
+              style: textStyle.copyWith(fontSize: shortestSide / 28),
             );
           },
         ),
@@ -65,9 +69,7 @@ Widget _buildWithWindowsServer(
         ),
         Text(
           'If you\'d like to know more, you can search online later for this error: ${stopCode?.name ?? ''}',
-          style: textStyle.copyWith(
-            fontSize: context.shortestSide48,
-          ),
+          style: textStyle.copyWith(fontSize: shortestSide / 48),
         ),
         if (stopCode == null)
           Expanded(
@@ -75,9 +77,7 @@ Widget _buildWithWindowsServer(
               physics: scrollable ? null : const NeverScrollableScrollPhysics(),
               child: Text(
                 '$exception',
-                style: textStyle.copyWith(
-                  fontSize: context.shortestSide48,
-                ),
+                style: textStyle.copyWith(fontSize: shortestSide / 48),
               ),
             ),
           ),

@@ -1,5 +1,6 @@
 import 'dart:async';
-import 'dart:developer';
+import 'dart:developer' as dev;
+import 'dart:math' as math;
 
 import '/src/exports/data.dart';
 import '/src/exports/utils.dart';
@@ -239,6 +240,7 @@ final class BlueScreenWidget extends StatelessWidget {
                 exception,
                 width: width,
                 height: height,
+                scrollable: scrollable,
                 textColor: textColor,
                 backgroundColor: backgroundColor,
                 fontFamily: fontFamily,

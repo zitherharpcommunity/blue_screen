@@ -18,9 +18,9 @@ void runSafeMode(
     body,
     onError ??
         (error, stackTrace) {
-          log(
+          dev.log(
             '$error',
-            name: 'SAFE_MODE',
+            name: 'SAFE MODE',
             error: error,
             stackTrace: stackTrace,
           );
@@ -34,24 +34,31 @@ Widget _buildSafeMode(
   Object exception, {
   required double? width,
   required double? height,
+  required bool scrollable,
   required Color? textColor,
   required Color? backgroundColor,
   required String? fontFamily,
 }) {
+  width = width ?? context.width;
+  height = height ?? context.height;
+  final shortestSide = math.min(width, height);
   return Container(
-    width: width ?? context.width,
-    height: height ?? context.height,
-    color: backgroundColor ?? Colors.blue,
+    width: width,
+    height: height,
+    color: backgroundColor ?? BlueScreen.backgroundColor,
     padding: EdgeInsets.symmetric(
-      vertical: context.shortestSide5,
-      horizontal: context.shortestSide10,
+      vertical: shortestSide / 5,
+      horizontal: shortestSide / 10,
     ),
-    child: Text(
-      '$exception',
-      style: TextStyle(
-        fontWeight: FontWeight.bold,
-        fontFamily: fontFamily ?? FontFamily.segoe,
-        color: textColor ?? Theme.of(context).colorScheme.onBackground,
+    child: SingleChildScrollView(
+      physics: scrollable ? null : const NeverScrollableScrollPhysics(),
+      child: Text(
+        '$exception',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          color: textColor ?? BlueScreen.textColor,
+          fontFamily: fontFamily ?? BlueScreen.fontFamily,
+        ),
       ),
     ),
   );

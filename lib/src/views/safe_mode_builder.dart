@@ -10,13 +10,23 @@ class SafeModeBuilder extends StatelessWidget {
   /// If [enable] is true, the [builder] will be called in a safe mode.
   const SafeModeBuilder({
     super.key,
-    this.enable = true,
+    this.enable = kReleaseMode,
+    this.showSafeModeBanner = kDebugMode,
     required this.builder,
     required this.creator,
   });
 
   /// If true, the [builder] will be called in a safe mode.
   final bool enable;
+
+  /// Turns on a little "SAFE MODE" banner in safe mode
+  /// to indicate that the app is in safe mode.
+  ///
+  /// This is on by default (in debug mode), to turn it off,
+  /// set the constructor argument to false. 
+  /// 
+  /// In release mode or [enable] is `false`, this has no effect.
+  final bool showSafeModeBanner;
 
   /// Called to obtain the child widget.
   ///
@@ -27,18 +37,24 @@ class SafeModeBuilder extends StatelessWidget {
   /// to the corresponding old one.
   final Widget Function(BuildContext context) builder;
 
-  /// Called to obtain the [BlueScreenWidget].
-  final BlueScreenWidget Function(Object exception) creator;
+  /// Called to obtain the [Widget].
+  final Widget Function(Object exception) creator;
 
   @override
   Widget build(BuildContext context) {
+    Widget child = builder(context);
     if (enable) {
       try {
-        return builder(context);
+        if (showSafeModeBanner) {
+          child = SafeModeBanner(
+            child: child,
+          );
+        }
+        return child;
       } catch (exception) {
         return creator(exception);
       }
     }
-    return builder(context);
+    return child;
   }
 }

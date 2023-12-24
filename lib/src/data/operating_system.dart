@@ -3,6 +3,13 @@ import '/src/exports/utils.dart';
 
 /// The operating system used for builds [BlueScreenWidget].
 enum OperatingSystem {
+  /// Windows 8 & 8.1.
+  windows8(
+    fontFamily: FontFamily.segoe,
+    textColor: Colors.white,
+    backgroundColor: Colors.blue,
+  ),
+
   /// Windows 10.
   windows10(
     fontFamily: FontFamily.segoe,

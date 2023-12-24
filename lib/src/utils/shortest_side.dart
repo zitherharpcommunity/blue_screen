@@ -19,3 +19,15 @@ extension ShortestSideUtils on BuildContext {
 
   double get shortestSide48 => shortestSide / 48;
 }
+
+extension SizeUtil on double {
+  double get asize3 => this / 3;
+}
+
+extension TextStyleUtil on TextStyle {
+  /// Creates a copy of this text style
+  /// but with the given [fontSize] replaced with the new values.
+  TextStyle withFontSize(double fontSize) {
+    return copyWith(fontSize: fontSize);
+  }
+}

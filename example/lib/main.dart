@@ -52,7 +52,7 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
               stopCode: StopCode.random(),
             );
           default:
-            // By default, show a blue screen in safe mode.
+            // By default, show a default blue screen.
             return BlueScreenWidget(exception);
         }
       },
@@ -63,7 +63,8 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
         title: 'blue_screen_example',
         debugShowCheckedModeBanner: false,
         home: SafeModeBuilder(
-          enable: false,
+          enable: true,
+          showSafeModeBanner: true,
           builder: (context) {
             if (operatingSystem != null) {
               // Since the error widget is only used during a build, in this contrived example,
@@ -81,7 +82,7 @@ class _BlueScreenExampleAppState extends State<BlueScreenExampleApp> {
                         context: context,
                         builder: (context) {
                           return SimpleDialog(
-                            title: const Text('BlueScreen Types'),
+                            title: const Text('BlueScreen Systems'),
                             children: OperatingSystem.values.map((os) {
                               return SimpleDialogOption(
                                 child: Text(os.name),
