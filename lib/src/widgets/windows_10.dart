@@ -21,6 +21,10 @@ Widget _buildWithWindows10(
   required Duration duration,
   required void Function()? onCompleted,
 }) {
+  final size = Size(
+    width ?? context.width,
+    height ?? context.height,
+  );
   final textStyle = TextStyle(
     color: textColor ?? system.textColor,
     fontFamily: fontFamily ?? system.fontFamily,
@@ -29,31 +33,31 @@ Widget _buildWithWindows10(
     width: width ?? context.width,
     height: height ?? context.height,
     color: backgroundColor ?? system.backgroundColor,
-    padding: EdgeInsets.all(context.shortestSide10),
+    padding: EdgeInsets.all(size.shortestSide / 10),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         SizedBox(
-          height: context.shortestSide28,
+          height: size.shortestSide / 28,
         ),
         Text(
           emoticon,
           style: textStyle.copyWith(
-            fontSize: context.shortestSide5,
+            fontSize: size.shortestSide / 5,
           ),
         ),
         SizedBox(
-          height: context.shortestSide28,
+          height: size.shortestSide / 28,
         ),
         Text(
           'Your PC ran into a problem and needs to restart.\n'
           'We\'re just collecting some error info, and then we\'ll restart for you.',
           style: textStyle.copyWith(
-            fontSize: context.shortestSide36,
+            fontSize: size.shortestSide / 36,
           ),
         ),
         SizedBox(
-          height: context.shortestSide28,
+          height: size.shortestSide / 28,
         ),
         StreamBuilder(
           initialData: 0,
@@ -73,30 +77,30 @@ Widget _buildWithWindows10(
             return Text(
               '$progress% complete',
               style: textStyle.copyWith(
-                fontSize: context.shortestSide36,
+                fontSize: size.shortestSide / 36,
               ),
             );
           },
         ),
         SizedBox(
-          height: context.shortestSide28,
+          height: size.shortestSide / 28,
         ),
         SizedBox(
-          height: context.shortestSide8,
+          height: size.shortestSide / 8,
           child: Wrap(
             children: [
               if (image != null)
                 Padding(
                   padding: EdgeInsets.only(
-                    bottom: context.shortestSide36,
+                    bottom: context.shortestSide / 36,
                   ),
                   child: Image(
                     image: image,
-                    height: context.shortestSide8,
+                    height: context.shortestSide / 8,
                   ),
                 ),
               SizedBox(
-                width: context.shortestSide36,
+                width: context.shortestSide / 36,
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -105,16 +109,16 @@ Widget _buildWithWindows10(
                   Text(
                     'For more information about this issue and possible fixes, visit $url',
                     style: textStyle.copyWith(
-                      fontSize: context.shortestSide40,
+                      fontSize: context.shortestSide / 40,
                     ),
                   ),
                   SizedBox(
-                    height: context.shortestSide36,
+                    height: context.shortestSide / 36,
                   ),
                   Text(
                     'If you call a support person, give them this info:',
                     style: textStyle.copyWith(
-                      fontSize: context.shortestSide48,
+                      fontSize: context.shortestSide / 48,
                     ),
                   ),
                   Text(
@@ -122,7 +126,7 @@ Widget _buildWithWindows10(
                         ? '$exception'
                         : 'Stop code: ${stopCode.name}',
                     style: textStyle.copyWith(
-                      fontSize: context.shortestSide48,
+                      fontSize: context.shortestSide / 48,
                     ),
                   ),
                 ],

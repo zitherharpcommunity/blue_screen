@@ -1,23 +1,19 @@
 part of '/src/views/blue_screen_widget.dart';
 
 /// Builds a [BlueScreenWidget] with Windows Server.
-Widget _buildWithWindowsServer(
+Widget _buildWithWindows8(
   BuildContext context,
   Object exception, {
   required double? width,
   required double? height,
-  required bool rebuild,
-  required bool repeatable,
   required bool scrollable,
   required Color? textColor,
   required Color? backgroundColor,
+  required String emoticon,
   required String? fontFamily,
   required StopCode? stopCode,
   required OperatingSystem system,
   required DisplayLanguage language,
-  required Duration period,
-  required Duration duration,
-  required void Function()? onCompleted,
 }) {
   final size = Size(
     width ?? context.width,
@@ -40,35 +36,27 @@ Widget _buildWithWindowsServer(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        StreamBuilder(
-          initialData: 0,
-          stream: Stream.periodic(
-            period,
-            (tick) {
-              final progress = 100 / (duration.inSeconds / tick);
-              if (progress > 100 && repeatable) {
-                onCompleted?.call();
-                if (rebuild) BlueScreenBuilder.rebuild(context);
-              }
-              return progress > 100 ? 100 : progress;
-            },
+        Text(
+          emoticon,
+          style: textStyle.copyWith(
+            fontSize: size.shortestSide / 5,
           ),
-          builder: (context, snapshot) {
-            final progress = snapshot.requireData.round();
-            return Text(
-              'Your PC ran into a problem and needs to restart.\n'
-              'We\'re just collecting some error info, and then we\'ll restart for you. ($progress% complete)',
-              style: textStyle.copyWith(
-                fontSize: size.shortestSide / 28,
-              ),
-            );
-          },
+        ),
+        SizedBox(
+          height: size.shortestSide / 28,
+        ),
+        Text(
+          'Your PC ran into a problem that it couldn\'t\n'
+          'handle, and now it needs to restart',
+          style: textStyle.copyWith(
+            fontSize: size.shortestSide / 28,
+          ),
         ),
         SizedBox(
           height: size.shortestSide / 40,
         ),
         Text(
-          'If you\'d like to know more, you can search online later for this error: ${stopCode?.name ?? ''}',
+          'You can search for the error online: ${stopCode?.name ?? ''}',
           style: textStyle.copyWith(
             fontSize: size.shortestSide / 48,
           ),

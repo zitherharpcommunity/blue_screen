@@ -1,12 +1,13 @@
 import 'dart:async';
-import 'dart:developer' as dev;
-import 'dart:math' as math;
+import 'dart:developer';
+import 'dart:math' hide log;
 
 import '/src/exports/data.dart';
 import '/src/exports/utils.dart';
 import '/src/exports/views.dart';
 
 part '../widgets/safe_mode.dart';
+part '../widgets/windows_8.dart';
 part '../widgets/windows_10.dart';
 part '../widgets/windows_11.dart';
 part '../widgets/windows_server.dart';
@@ -101,6 +102,29 @@ final class BlueScreenWidget extends StatelessWidget {
         duration = Duration.zero,
         onCompleted = null;
 
+  /// Creates a [BlueScreenWidget] with [OperatingSystem.windows8].
+  const BlueScreenWidget.withWindows8(
+    this.exception, {
+    super.key,
+    this.width,
+    this.height,
+    this.scrollable = false,
+    this.fontFamily,
+    this.textColor,
+    this.backgroundColor,
+    this.stopCode,
+    this.language = DisplayLanguage.en,
+  })  : system = OperatingSystem.windows8,
+        rebuild = false,
+        repeatable = false,
+        url = '',
+        emoticon = '',
+        image = null,
+        period = Duration.zero,
+        duration = Duration.zero,
+        onCompleted = null;
+
+
   /// Creates a [BlueScreenWidget] with [OperatingSystem.windows10].
   const BlueScreenWidget.withWindows10(
     this.exception, {
@@ -173,6 +197,21 @@ final class BlueScreenWidget extends StatelessWidget {
       body: Builder(
         builder: (context) {
           switch (system) {
+            case OperatingSystem.windows8:
+              return _buildWithWindows8(
+                context,
+                exception,
+                width: width,
+                height: height,
+                scrollable: scrollable,
+                textColor: textColor,
+                backgroundColor: backgroundColor,
+                emoticon: emoticon,
+                fontFamily: fontFamily,
+                language: language,
+                stopCode: stopCode,
+                system: OperatingSystem.windows8,
+              );
             case OperatingSystem.windows10:
               return _buildWithWindows10(
                 context,

@@ -18,7 +18,7 @@ void runSafeMode(
     body,
     onError ??
         (error, stackTrace) {
-          dev.log(
+          log(
             '$error',
             name: 'SAFE MODE',
             error: error,
@@ -41,7 +41,7 @@ Widget _buildSafeMode(
 }) {
   width = width ?? context.width;
   height = height ?? context.height;
-  final shortestSide = math.min(width, height);
+  final shortestSide = min(width, height);
   return Container(
     width: width,
     height: height,
