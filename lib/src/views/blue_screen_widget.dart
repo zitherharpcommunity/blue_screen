@@ -124,7 +124,6 @@ final class BlueScreenWidget extends StatelessWidget {
         duration = Duration.zero,
         onCompleted = null;
 
-
   /// Creates a [BlueScreenWidget] with [OperatingSystem.windows10].
   const BlueScreenWidget.withWindows10(
     this.exception, {

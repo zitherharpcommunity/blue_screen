@@ -23,8 +23,8 @@ class SafeModeBuilder extends StatelessWidget {
   /// to indicate that the app is in safe mode.
   ///
   /// This is on by default (in debug mode), to turn it off,
-  /// set the constructor argument to false. 
-  /// 
+  /// set the constructor argument to false.
+  ///
   /// In release mode or [enable] is `false`, this has no effect.
   final bool showSafeModeBanner;
 
